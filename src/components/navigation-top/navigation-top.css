@@ -1,0 +1,40 @@
+.nav-top {
+  grid-area: nav;
+  background-color: var(--COLOR_BRAND_ALPHA);
+  height: 7vh;
+  color: var(--COLOR_TEXT_TWO);
+  padding: 0 3rem;
+}
+
+.nav-top-search-bar {
+  width: 30%;
+  margin-left: auto;
+  background-color: var(--COLOR_NEUTRAL_ALPHA);
+  border-radius: 0.25rem;
+}
+
+.nav-top-search-bar__icon {
+  color: var(--COLOR_TEXT_ONE);
+}
+
+.nav-top-search-bar > input[type='search'] {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+/* TODO: luxury item, not needed now */
+.nav-top-search-bar > input[type='search']:focus {
+  outline: none;
+}
+
+.nav-top__container-cta {
+  /* width: 25%; */
+}
+
+.nav-top-icon {
+  height: 1.25em;
+  width: 1.25em;
+}
