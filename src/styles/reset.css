@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--COLOR_BACKGROUND_ALPHA);
+  font-family: 'Poppins', sans-serif;
+  color: var(--COLOR_TEXT_ONE);
+  font-weight: 500;
+}
+
+/* ---ELEMENTS--- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background-color: transparent;
+  width: fit-content;
+  color: var(--COLOR_TEXT_ONE);
+}
+
+p {
+  line-height: 150%;
+}
+
+pre {
+  display: inline;
+  color: var(--COLOR_TEXT_TWO);
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: var(--COLOR_BRAND_ALPHA_LIGHT);
+}
+
+ul {
+  list-style: none;
+}

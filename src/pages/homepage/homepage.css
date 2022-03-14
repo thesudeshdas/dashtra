@@ -1,0 +1,77 @@
+#page-homepage {
+  grid-area: main;
+  height: 93vh;
+  overflow: scroll;
+}
+
+#homepage__section--hero img {
+  height: 80vh;
+  width: 100%;
+}
+
+#homepage__section--categories h2 {
+  text-align: center;
+  width: 40%;
+}
+
+hr {
+  background-color: var(--COLOR_BRAND_ALPHA_LIGHT);
+  height: 0.5rem;
+  width: 50%;
+  margin: 2rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+/* ---CATEGORIES CONTAINER--- */
+.categories-container {
+  width: 50%;
+  display: grid;
+  height: 90vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    'cat1 cat1 cat3'
+    'cat1 cat1 cat4'
+    'cat5 cat2 cat2'
+    'cat6 cat2 cat2';
+  grid-gap: 1rem;
+}
+
+.categories-container > *:nth-child(1) {
+  grid-area: cat1;
+}
+
+.categories-container > *:nth-child(2) {
+  grid-area: cat2;
+}
+
+.categories-container > *:nth-child(3) {
+  grid-area: cat3;
+}
+
+.categories-container > *:nth-child(4) {
+  grid-area: cat4;
+}
+
+.categories-container > *:nth-child(5) {
+  grid-area: cat5;
+}
+
+.categories-container > *:nth-child(6) {
+  grid-area: cat6;
+}
+
+/* ---BRANDS CONTAINER--- */
+.brands-container {
+  width: 50%;
+  justify-content: space-between;
+}
+
+.brands-container li {
+  height: fit-content;
+}
+
+.brands-container li img {
+  width: 80%;
+}

@@ -1,0 +1,97 @@
+/* ---FLEX--- */
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---GRID--- */
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+/* ---PADDING--- */
+.padding-md {
+  padding: 1rem;
+}
+
+.padding-sm {
+  padding: 0.5rem;
+}
+
+/* ---MARGIN--- */
+.margin-top-md {
+  margin-top: 1rem;
+}
+
+.margin-top-lg {
+  margin-top: 2rem;
+}
+
+.margin-right-md {
+  margin-right: 1rem;
+}
+
+.margin-bottom-md {
+  margin-bottom: 1rem;
+}
+
+.margin-left-sm {
+  margin-left: 0.5rem;
+}
+
+.margin-vertical-md {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.margin-vertical-lg {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.margin-horizontal-md {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+/* ---FONT--- */
+.font-size-md {
+  font-size: 1rem;
+}
+
+.font-size-lg {
+  font-size: 2rem;
+}
+
+.font-size-xl {
+  font-size: 3rem;
+}
+
+/* ---IMAGE--- */
+.image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---TEXT--- */
+.text-highlight {
+  color: var(--COLOR_BRAND_ALPHA);
+}
