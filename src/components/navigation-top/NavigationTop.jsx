@@ -8,10 +8,18 @@ export default function NavigationTop() {
     <nav className='nav-top flex-align-center'>
       <img src='/dash-logo.svg' alt='brand' className='margin-right-md' />
       <ul className='nav-top-categories flex-row'>
-        <li className='margin-horizontal-md'>Football</li>
-        <li className='margin-horizontal-md'>Clothing</li>
-        <li className='margin-horizontal-md'>Accessories</li>
-        <li className='margin-horizontal-md'>Fitness</li>
+        <li className='margin-horizontal-md'>
+          <a href='/products'>Football</a>
+        </li>
+        <li className='margin-horizontal-md'>
+          <a href='/products'>Accessories</a>
+        </li>
+        <li className='margin-horizontal-md'>
+          <a href='/products'>Clothing</a>
+        </li>
+        <li className='margin-horizontal-md'>
+          <a href='/products'>Fitness</a>
+        </li>
       </ul>
       <form className='nav-top-search-bar flex-row flex-align-center margin-right-md'>
         <MiSearch className='nav-top-search-bar__icon margin-left-sm' />
