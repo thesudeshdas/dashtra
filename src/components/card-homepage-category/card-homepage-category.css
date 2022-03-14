@@ -1,0 +1,8 @@
+.card-homepage--category {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card-homepage--category img {
+  height: 100%;
+}
