@@ -8,9 +8,9 @@ export default function NavFooterPages() {
   const navigate = useNavigate();
 
   // ?Possibly a hack, maybe find a better way
-  useEffect(() => {
-    navigate('/home');
-  }, [navigate]);
+  // useEffect(() => {
+  //   navigate('/home');
+  // }, [navigate]);
 
   return (
     <div className='page-nav-footer-page'>

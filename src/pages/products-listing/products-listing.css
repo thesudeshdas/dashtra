@@ -1,0 +1,5 @@
+#page-products-listing {
+  grid-area: main;
+  height: 93vh;
+  overflow: scroll;
+}
