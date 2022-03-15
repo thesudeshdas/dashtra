@@ -5,9 +5,19 @@
   flex-direction: row;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-align-center {
@@ -20,6 +30,10 @@
   justify-content: center;
 }
 
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
 /* ---GRID--- */
 .grid-center {
   display: grid;
@@ -27,6 +41,11 @@
 }
 
 /* ---PADDING--- */
+.padding-horizontal-md {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .padding-md {
   padding: 1rem;
 }
@@ -42,6 +61,14 @@
 
 .margin-top-lg {
   margin-top: 2rem;
+}
+
+.margin-right-xs {
+  margin-right: 0.25rem;
+}
+
+.margin-right-sm {
+  margin-right: 0.5rem;
 }
 
 .margin-right-md {
@@ -72,8 +99,20 @@
 }
 
 /* ---FONT--- */
+.font-size-sm {
+  font-size: 0.75rem;
+}
+
+.font-size-ms {
+  font-size: 0.875rem;
+}
+
 .font-size-md {
   font-size: 1rem;
+}
+
+.font-size-ml {
+  font-size: 1.5rem;
 }
 
 .font-size-lg {
@@ -84,8 +123,16 @@
   font-size: 3rem;
 }
 
+.font-weight-500 {
+  font-weight: 500;
+}
+
 .font-weight-600 {
   font-weight: 600;
+}
+
+.font-weight-700 {
+  font-weight: 700;
 }
 
 /* ---IMAGE--- */

@@ -1,22 +1,23 @@
 #page-products-listing {
   grid-area: main;
   height: 93vh;
-  overflow: scroll;
 }
 
 #page-products-listing > aside {
   width: 15%;
   border-right: 2px solid var(--COLOR_TEXT_ONE);
+
+  /* TODO - Add scroll in side nav later 
+  overflow: scroll; */
 }
 
 #page-products-listing > section {
   width: 85%;
+  overflow-y: scroll;
 }
 
-/* ---FILTER COMPONENT--- */
-.hr-filter {
-  border: none;
-  width: 100%;
-  height: 2px;
-  background-color: var(--COLOR_TEXT_ONE);
+#products-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }

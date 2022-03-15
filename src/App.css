@@ -1,3 +1,23 @@
 @import url('./styles/variables.css');
 @import url('./styles/reset.css');
 @import url('./styles/utilities.css');
+
+.button {
+  border: 2px solid var(--COLOR_TEXT_ONE);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.button:hover {
+  background-color: var(--COLOR_NEUTRAL_ALPHA_DARK);
+}
+
+.button-outline-secondary {
+  border-color: var(--COLOR_NEUTRAL_BETA_DARK);
+  color: var(--COLOR_BRAND_ALPHA);
+}
+
+.button-outline-secondary:hover {
+  background-color: var(--COLOR_NEUTRAL_BETA_DARK);
+  color: var(--COLOR_TEXT_ONE);
+}
