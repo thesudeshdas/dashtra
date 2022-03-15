@@ -14,7 +14,7 @@
   width: 40%;
 }
 
-hr {
+#homepage__section--categories h2 + hr {
   background-color: var(--COLOR_BRAND_ALPHA_LIGHT);
   height: 0.5rem;
   width: 50%;
