@@ -1,6 +1,23 @@
+import { optionsFilterData } from '../../data/optionsFilter.data';
 import './filter.css';
 
-export default function Filter() {
+export default function Filter({ handleFilters }) {
+  const handleBrands = (e) => {
+    handleFilters((prevOptions) => ({
+      ...prevOptions,
+      brands: e.target.checked
+        ? prevOptions.brands.concat(e.target.value)
+        : prevOptions.brands.filter((item) => item !== e.target.value),
+    }));
+  };
+
+  const handleCategories = (e) => {
+    handleFilters((prevOptions) => ({
+      ...prevOptions,
+      categories: e.target.value,
+    }));
+  };
+
   return (
     <aside className='padding-md'>
       <div>Home/Football</div>
@@ -9,40 +26,37 @@ export default function Filter() {
       {/* //TODO - Put HR later 
   <hr className='hr-filter margin-vertical-md' /> */}
       <ul>
-        <li>
-          <label htmlFor='football'>
-            <input type='radio' /> Football
-          </label>
-        </li>
-        <li>
-          <label htmlFor='football'>
-            <input type='radio' /> Clothing
-          </label>
-        </li>
-        <li>
-          <label htmlFor='football'>
-            <input type='radio' /> Fitness
-          </label>
-        </li>
+        {optionsFilterData.filters
+          .find((item) => item.category === 'Categories')
+          .options.map((option) => (
+            <li>
+              <input
+                name='category'
+                type='radio'
+                id={option}
+                value={option}
+                onChange={handleCategories}
+              />
+              <label htmlFor={option}>{option}</label>
+            </li>
+          ))}
       </ul>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>BRANDS</h2>
       <ul>
-        <li>
-          <label htmlFor='football'>
-            <input type='checkbox' /> Nike
-          </label>
-        </li>
-        <li>
-          <label htmlFor='football'>
-            <input type='checkbox' /> Adidas
-          </label>
-        </li>
-        <li>
-          <label htmlFor='football'>
-            <input type='checkbox' /> Puma
-          </label>
-        </li>
+        {optionsFilterData.filters
+          .find((item) => item.category === 'Brands')
+          .options.map((option) => (
+            <li>
+              <input
+                type='checkbox'
+                id={option}
+                value={option}
+                onChange={handleBrands}
+              />
+              <label htmlFor={option}>{option}</label>
+            </li>
+          ))}
       </ul>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>PRICE</h2>
