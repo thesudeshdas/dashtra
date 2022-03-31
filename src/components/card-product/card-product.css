@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.card > img {
+.card-product img {
   width: calc(100% + 2rem);
   margin-top: -1rem;
   margin-left: -1rem;
