@@ -54,11 +54,14 @@ export default function ProductsListing() {
       <Filter handleFilters={setSelectedOptions} />
       <section className='padding-md'>
         <ul id='products-container'>
-          {filteredArray.map((product) => (
-            <li key={product._id}>
-              <CardProduct details={product} />
-            </li>
-          ))}
+          {filteredArray.length > 0
+            ? filteredArray.map((product) => (
+                <li key={product._id}>
+                  <CardProduct details={product} />
+                </li>
+              ))
+            : // TODO : This to a be an error message
+              'No products, remove some filters'}
         </ul>
       </section>
     </main>
