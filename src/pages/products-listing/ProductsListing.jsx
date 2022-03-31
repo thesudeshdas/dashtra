@@ -35,7 +35,7 @@ export default function ProductsListing() {
   const [selectedOptions, setSelectedOptions] = useState({
     rating: 0,
     brands: [],
-    // price: price.maximum,
+    price: 10000,
     categories: '',
     availability: {
       includeOutOfStock: false,
@@ -46,7 +46,8 @@ export default function ProductsListing() {
   const filteredArray = filterProducts(
     productsList,
     selectedOptions.categories,
-    selectedOptions.brands
+    selectedOptions.brands,
+    selectedOptions.price
   );
 
   return (

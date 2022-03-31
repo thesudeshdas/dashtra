@@ -19,17 +19,19 @@ export default function ProductsProvider({ children }) {
           productsList: payload.productsList,
         };
 
-      case 'FILTER_BRANDS': {
-        console.log('trying to filter brand persist');
+      // TODO: later persist the filter
+      // case 'FILTER_BRANDS': {
+      //   console.log('trying to filter brand persist');
 
-        return {
-          ...state,
-          filters: {
-            ...state.filters,
-            brands: action.payload.brandsList,
-          },
-        };
-      }
+      //   return {
+      //     ...state,
+      //     filters: {
+      //       ...state.filters,
+      //       brands: action.payload.brandsList,
+      //     },
+      //   };
+      // }
+      
       default:
         return state;
     }

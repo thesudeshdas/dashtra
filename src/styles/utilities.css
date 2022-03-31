@@ -1,5 +1,4 @@
 /* ---FLEX--- */
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -31,6 +30,7 @@
 }
 
 .flex-justify-space-between {
+  display: flex;
   justify-content: space-between;
 }
 

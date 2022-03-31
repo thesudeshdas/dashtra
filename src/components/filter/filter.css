@@ -5,3 +5,7 @@
   height: 2px;
   background-color: var(--COLOR_TEXT_ONE);
 }
+
+.filter input[type='range'] {
+  width: 100%;
+}

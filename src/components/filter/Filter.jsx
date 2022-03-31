@@ -1,7 +1,20 @@
+import { useProducts } from '../../contexts/products.context';
 import { optionsFilterData } from '../../data/optionsFilter.data';
 import './filter.css';
 
 export default function Filter({ handleFilters }) {
+  const {
+    state: { productsList },
+  } = useProducts();
+
+  const minPrice = Math.min(
+    ...productsList.map((product) => product.price.discounted)
+  );
+
+  const maxPrice = Math.max(
+    ...productsList.map((product) => product.price.discounted)
+  );
+
   const handleBrands = (e) => {
     handleFilters((prevOptions) => ({
       ...prevOptions,
@@ -18,13 +31,17 @@ export default function Filter({ handleFilters }) {
     }));
   };
 
+  const handlePrice = (e) => {
+    handleFilters((prevOptions) => ({ ...prevOptions, price: e.target.value }));
+  };
+
   return (
-    <aside className='padding-md'>
+    <aside className='filter padding-md'>
       <div>Home/Football</div>
       <h2 className='margin-top-md font-size-md font-weight-600'>FILTERS</h2>
 
       {/* //TODO - Put HR later 
-  <hr className='hr-filter margin-vertical-md' /> */}
+      <hr className='hr-filter margin-vertical-md' /> */}
 
       <ul>
         {optionsFilterData.filters
@@ -61,7 +78,18 @@ export default function Filter({ handleFilters }) {
       </ul>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>PRICE</h2>
-      <input type='range' />
+
+      <input
+        type='range'
+        min={minPrice}
+        max={maxPrice}
+        defaultValue={maxPrice}
+        onChange={handlePrice}
+      />
+      <div className='flex-justify-space-between'>
+        <label className='font-size-sm'>Min: ₹ {minPrice}</label>
+        <label className='font-size-sm'>Max: ₹ {maxPrice}</label>
+      </div>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>COLOR</h2>
       <ul>
