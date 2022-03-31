@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { CardProduct, Filter } from '../../components';
 import { useProducts } from '../../contexts/products.context';
@@ -16,10 +17,19 @@ export default function ProductsListing() {
   } = useProducts();
 
   useEffect(() => {
-    productsDispatch({
-      type: 'INITIAL_FETCH_FROM_SERVER',
-      payload: { productsList: productsData.productsList },
-    });
+    (async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/products');
+
+        response.status === 200 &&
+          productsDispatch({
+            type: 'INITIAL_FETCH_FROM_SERVER',
+            payload: { productsList: response.data.productsList },
+          });
+      } catch (error) {
+        console.log('error whiel fetching');
+      }
+    })();
   }, []);
 
   const [selectedOptions, setSelectedOptions] = useState({
@@ -45,7 +55,7 @@ export default function ProductsListing() {
       <section className='padding-md'>
         <ul id='products-container'>
           {filteredArray.map((product) => (
-            <li key={product.id}>
+            <li key={product._id}>
               <CardProduct details={product} />
             </li>
           ))}

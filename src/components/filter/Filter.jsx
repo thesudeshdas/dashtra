@@ -25,11 +25,12 @@ export default function Filter({ handleFilters }) {
 
       {/* //TODO - Put HR later 
   <hr className='hr-filter margin-vertical-md' /> */}
+
       <ul>
         {optionsFilterData.filters
           .find((item) => item.category === 'Categories')
           .options.map((option) => (
-            <li>
+            <li key={option}>
               <input
                 name='category'
                 type='radio'
@@ -47,7 +48,7 @@ export default function Filter({ handleFilters }) {
         {optionsFilterData.filters
           .find((item) => item.category === 'Brands')
           .options.map((option) => (
-            <li>
+            <li key={option}>
               <input
                 type='checkbox'
                 id={option}
