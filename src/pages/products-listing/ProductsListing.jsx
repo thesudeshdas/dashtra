@@ -47,7 +47,8 @@ export default function ProductsListing() {
     productsList,
     selectedOptions.categories,
     selectedOptions.brands,
-    selectedOptions.price
+    selectedOptions.price,
+    selectedOptions.rating
   );
 
   return (

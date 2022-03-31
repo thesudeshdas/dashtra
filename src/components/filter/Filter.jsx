@@ -15,6 +15,13 @@ export default function Filter({ handleFilters }) {
     ...productsList.map((product) => product.price.discounted)
   );
 
+  const handleCategories = (e) => {
+    handleFilters((prevOptions) => ({
+      ...prevOptions,
+      categories: e.target.value,
+    }));
+  };
+
   const handleBrands = (e) => {
     handleFilters((prevOptions) => ({
       ...prevOptions,
@@ -24,10 +31,10 @@ export default function Filter({ handleFilters }) {
     }));
   };
 
-  const handleCategories = (e) => {
+  const handleRatings = (e) => {
     handleFilters((prevOptions) => ({
       ...prevOptions,
-      categories: e.target.value,
+      rating: e.target.value,
     }));
   };
 
@@ -55,7 +62,7 @@ export default function Filter({ handleFilters }) {
                 value={option}
                 onChange={handleCategories}
               />
-              <label htmlFor={option}>{option}</label>
+              <label htmlFor={option}> {option}</label>
             </li>
           ))}
       </ul>
@@ -72,7 +79,7 @@ export default function Filter({ handleFilters }) {
                 value={option}
                 onChange={handleBrands}
               />
-              <label htmlFor={option}>{option}</label>
+              <label htmlFor={option}> {option}</label>
             </li>
           ))}
       </ul>
@@ -91,7 +98,24 @@ export default function Filter({ handleFilters }) {
         <label className='font-size-sm'>Max: ₹ {maxPrice}</label>
       </div>
 
-      <h2 className='margin-top-md font-size-md font-weight-600'>COLOR</h2>
+      <h2 className='margin-top-md font-size-md font-weight-600'>Ratings</h2>
+      <ul>
+        {optionsFilterData.filters
+          .find((item) => item.category === 'Ratings')
+          .options.map((option) => (
+            <li key={option}>
+              <input
+                type='checkbox'
+                id={option}
+                value={option}
+                onChange={handleRatings}
+              />
+              <label htmlFor={option}> {option} & above</label>
+            </li>
+          ))}
+      </ul>
+
+      {/* <h2 className='margin-top-md font-size-md font-weight-600'>COLOR</h2>
       <ul>
         <li>
           <label htmlFor='football'>
@@ -108,7 +132,7 @@ export default function Filter({ handleFilters }) {
             <input type='checkbox' /> White
           </label>
         </li>
-      </ul>
+      </ul> */}
     </aside>
   );
 }

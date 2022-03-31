@@ -4,8 +4,8 @@ export const optionsFilterData = {
     'All the options that will be show in the app curated in one place',
   filters: [
     {
-      category: 'Rating',
-      options: [0, 1, 2, 3, 4],
+      category: 'Ratings',
+      options: [4, 3, 2, 1, 0],
     },
     {
       category: 'Categories',
