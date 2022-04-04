@@ -13,83 +13,25 @@ import './product-details.css';
 export default function ProductDetails() {
   const { productId } = useParams();
 
-  const [product, setProduct] = useState({
-    id: 'p003',
-    brand: 'Puma',
-    categories: ['Accessories'],
-    description:
-      'Introducing the PUMA Football Turf Ball, Propels you to greater milestones with its sleek, agile, functional design infused with pumas cutting edge technology.',
-    fastDelivery: true,
-    images: [
-      {
-        src: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/083799/01/fnd/IND/fmt/png/PUMA-Football-Turf-Ball',
-        alt: 'Puma Football Turf Ball front',
-      },
-      {
-        src: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/083799/01/bv/fnd/IND/fmt/png/PUMA-Football-Turf-Ball',
-        alt: 'Puma Football Turf Ball back',
-      },
-      {
-        src: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/083799/01/dt01/fnd/IND/fmt/png/PUMA-Football-Turf-Ball',
-        alt: 'Puma Football Turf Ball zoom front',
-      },
-      {
-        src: 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/083799/01/dt02/fnd/IND/fmt/png/PUMA-Football-Turf-Ball',
-        alt: 'Puma Football Turf Ball side',
-      },
-    ],
-    link: 'https://in.puma.com/in/en/pd/puma-football-turf-ball/083799.html?dwvar_083799_color=01',
-    name: 'Puma Football Turf Ball',
-    price: {
-      original: 1019,
-      discounted: 1699,
-      discount: 40,
-    },
-    rating: {
-      stars: 0,
-      number: 0,
-    },
-    specifications: [
-      {
-        heading: 'Color',
-        detail: 'Yellow/Black',
-      },
-      {
-        heading: 'Color',
-        detail: 'Yellow/Black',
-      },
-      {
-        heading: 'Color',
-        detail: 'Yellow/Black',
-      },
-      {
-        heading: 'Color',
-        detail: 'Yellow/Black',
-      },
-    ],
-    status: 'active',
-    stock: 20,
-  });
+  const [product, setProduct] = useState({});
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:3000/products/${productId}`
-  //       );
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/products/${productId}`
+        );
 
-  //       response.status === 200 && setProduct(response.data.product);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   })();
-  // }, []);
-
-  // console.log({ productId });
+        response.status === 200 && setProduct(response.data.product);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   return (
     <main id='page-product-details' className='flex-row'>
-      {/* TODO - Add history here */}
+      {/* // TODO - Add history here */}
       <nav className='padding-md'>
         <Link to='/'>Home</Link> / <Link to={'/football'}>Football</Link> /{' '}
         <Link to='/brands/nike'>Nike</Link>
@@ -103,13 +45,15 @@ export default function ProductDetails() {
 
         <ul id='product-details-price' className='flex-align-center'>
           <li>
-            <h2 className='font-weight-600'>₹ {product.price.discounted}</h2>
+            <h2 className='font-weight-600'>₹ {product.price?.discounted}</h2>
           </li>
           <li>
-            <h3 className='margin-horizontal-sm'>₹ {product.price.original}</h3>
+            <h3 className='margin-horizontal-sm'>
+              ₹ {product.price?.original}
+            </h3>
           </li>
           <li>
-            <h3>({product.price.discount}% off ) </h3>
+            <h3>({product.price?.discount}% off ) </h3>
           </li>
         </ul>
         <small>inclusive of all taxes</small>
@@ -176,8 +120,8 @@ export default function ProductDetails() {
           id='list-specifications'
           className='flex-wrap flex-justify-space-between font-weight-400'
         >
-          {product.specifications.map((item) => (
-            <li>
+          {product.specifications?.map((item) => (
+            <li key={item.heading}>
               <label htmlFor='' className='font-size-sm'>
                 {item.heading}
               </label>
