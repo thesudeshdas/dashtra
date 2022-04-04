@@ -1,8 +1,8 @@
 .page-nav-footer-page {
   display: grid;
   grid-template-areas:
-    'nav nav nav nav nav nav nav nav nav nav nav nav'
-    'main main main main main main main main main main main main';
+    'nav'
+    'main';
   min-height: 100vh;
   overflow: hidden;
 }

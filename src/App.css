@@ -12,6 +12,18 @@
   background-color: var(--COLOR_NEUTRAL_ALPHA_DARK);
 }
 
+.button-primary {
+  background-color: var(--COLOR_BRAND_ALPHA);
+  border-color: var(--COLOR_BRAND_ALPHA);
+  color: var(--COLOR_TEXT_TWO);
+  transition: 0.3s;
+}
+
+.button-primary:hover {
+  background-color: var(--COLOR_BRAND_ALPHA_LIGHT);
+  border-color: var(--COLOR_BRAND_ALPHA_LIGHT);
+}
+
 .button-outline-secondary {
   border-color: var(--COLOR_NEUTRAL_BETA_DARK);
   color: var(--COLOR_BRAND_ALPHA);

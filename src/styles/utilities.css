@@ -75,12 +75,25 @@
   margin-right: 1rem;
 }
 
+.margin-bottom-sm {
+  margin-bottom: 0.5rem;
+}
+
 .margin-bottom-md {
   margin-bottom: 1rem;
 }
 
+.margin-bottom-lg {
+  margin-bottom: 2rem;
+}
+
 .margin-left-sm {
   margin-left: 0.5rem;
+}
+
+.margin-vertical-sm {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .margin-vertical-md {
@@ -91,6 +104,11 @@
 .margin-vertical-lg {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.margin-horizontal-sm {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .margin-horizontal-md {
@@ -121,6 +139,10 @@
 
 .font-size-xl {
   font-size: 3rem;
+}
+
+.font-weight-400 {
+  font-weight: 400;
 }
 
 .font-weight-500 {
