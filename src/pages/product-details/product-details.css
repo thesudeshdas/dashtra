@@ -21,11 +21,21 @@
   grid-area: nav;
 }
 
-#page-product-details > section:nth-of-type(1) {
+/* ---PRODUCT IMAGES--- */
+
+#section-image-product-details {
   grid-area: img;
-  min-height: 93vh;
-  background-color: lightcoral;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
+
+/* ? If only one image is there, use all the width available for the parent */
+#section-image-product-details img:only-child {
+  width: calc(200% + 1rem);
+}
+
+/* --PRODUCT DETAILS--- */
 
 #page-product-details > section:nth-of-type(2) {
   grid-area: desc;

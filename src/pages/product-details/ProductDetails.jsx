@@ -36,7 +36,19 @@ export default function ProductDetails() {
         <Link to='/'>Home</Link> / <Link to={'/football'}>Football</Link> /{' '}
         <Link to='/brands/nike'>Nike</Link>
       </nav>
-      <section className='padding-md'>Image</section>
+      <section
+        id='section-image-product-details'
+        className='flex-wrap flex-justify-space-between padding-md'
+      >
+        {product.images?.map((image) => (
+          <img
+            key={image._id || image.alt}
+            src={image.src}
+            alt={image.alt}
+            className='image'
+          />
+        ))}
+      </section>
       <section className='padding-md'>
         <h3 className='font-size-md font-weight-600'>{product.brand}</h3>
         <h1 className='font-size-ml font-weight-400'>{product.name}</h1>
@@ -121,7 +133,7 @@ export default function ProductDetails() {
           className='flex-wrap flex-justify-space-between font-weight-400'
         >
           {product.specifications?.map((item) => (
-            <li key={item.heading}>
+            <li key={item._id || item.heading}>
               <label htmlFor='' className='font-size-sm'>
                 {item.heading}
               </label>
