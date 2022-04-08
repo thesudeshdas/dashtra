@@ -41,7 +41,7 @@ export default function NavigationTop() {
           </Link>
         </li>
         <li className='grid-center margin-horizontal-md'>
-          <Link to='/profile' className='grid-center'>
+          <Link to='/cart' className='grid-center'>
             <MiShoppingCart className='nav-top-icon' />
           </Link>
         </li>
