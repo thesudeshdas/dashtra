@@ -1,7 +1,12 @@
 import { CardProductCart } from '../../components';
+import { useCart } from '../../contexts/cart.context';
 import './Cart.css';
 
 export default function Cart() {
+  const { state } = useCart();
+
+  console.log({ state });
+
   return (
     <main className='page-cart'>
       <section className='section-cart-items padding-md'>
