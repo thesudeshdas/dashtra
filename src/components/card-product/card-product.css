@@ -1,7 +1,7 @@
 .card-product {
   width: 15rem;
   border: 1px solid var(--COLOR_TEXT_ONE);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -12,10 +12,6 @@
   margin-top: -1rem;
   margin-left: -1rem;
   aspect-ratio: 1/1;
-}
-
-.card-product__price > span:nth-child(1) {
-  text-decoration: line-through;
 }
 
 .card-product:hover .card-product__container-hover {

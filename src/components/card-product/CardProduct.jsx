@@ -9,18 +9,16 @@ export default function CardProduct({ details }) {
     <div className='card-product padding-md'>
       <Link to={`/product/${_id}`}>
         <img src={images[0].src} alt='Nike Strike' className='image' />
-        <h4>{brand}</h4>
-        <h3 className='font-size-ms'>{name}</h3>
-        <p className='card-product__price font-size-ms font-weight-700'>
-          ₹ {price.discounted}{' '}
+        <h4 className='font-weight-600'>{brand}</h4>
+        <h3 className='font-size-ms font-weight-400'>{name}</h3>
+        <p className='font-size-sm'>
+          <strong className='font-size-ms'>₹ {price.discounted} </strong>
           {price.discounted !== price.original && (
             <>
-              <span className='font-size-sm font-weight-500'>
-                $ {price.original}
+              <span className='text-strike margin-horizontal-xs'>
+                ₹ {price.original}
               </span>{' '}
-              <span className='font-size-sm font-weight-500'>
-                {price.discount}%
-              </span>
+              <span>{price.discount}%</span>
             </>
           )}
         </p>
