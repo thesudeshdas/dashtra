@@ -41,6 +41,11 @@
 }
 
 /* ---PADDING--- */
+.padding-vertical-sm {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .padding-horizontal-md {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -91,6 +96,11 @@
   margin-left: 0.5rem;
 }
 
+.margin-vertical-xs {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
 .margin-vertical-sm {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -104,6 +114,11 @@
 .margin-vertical-lg {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.margin-horizontal-xs {
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 .margin-horizontal-sm {
@@ -167,4 +182,8 @@
 /* ---TEXT--- */
 .text-highlight {
   color: var(--COLOR_BRAND_ALPHA);
+}
+
+.text-strike {
+  text-decoration: line-through;
 }

@@ -11,7 +11,6 @@ body {
   background-color: var(--COLOR_BACKGROUND_ALPHA);
   font-family: 'Poppins', sans-serif;
   color: var(--COLOR_TEXT_ONE);
-  font-weight: 500;
 }
 
 /* ---ELEMENTS--- */
