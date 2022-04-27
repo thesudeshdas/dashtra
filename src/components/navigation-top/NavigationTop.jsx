@@ -6,7 +6,10 @@ import { MiHeart, MiSearch, MiShoppingCart, MiUser } from '../../assets/icons';
 export default function NavigationTop() {
   return (
     <nav className='nav-top flex-align-center'>
-      <img src='/dash-logo.svg' alt='brand' className='margin-right-md' />
+      <Link to='/'>
+        <img src='/dash-logo.svg' alt='brand' className='margin-right-md' />
+      </Link>
+
       <ul className='nav-top-categories flex-row'>
         <li className='margin-horizontal-md'>
           <a href='/products'>Football</a>

@@ -14,8 +14,6 @@ export default function AuthProvider({ children }) {
     localStorage.getItem('userCredentials')
   );
 
-  console.log({ localUserCredentials });
-
   const initialState = {
     email: localUserCredentials?.email || '',
     name: localUserCredentials?.name || '',

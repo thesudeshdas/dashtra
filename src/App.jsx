@@ -21,7 +21,7 @@ function App() {
           <Route path='/product/:productId' element={<ProductDetails />} />
 
           <Route
-            path='/cart'
+            path='cart'
             element={
               <RequireAuth>
                 <Cart />
