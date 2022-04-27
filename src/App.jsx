@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import {
   Cart,
   Homepage,
+  Login,
   NavFooterPages,
   ProductDetails,
   ProductsListing,
@@ -19,6 +20,8 @@ function App() {
           <Route path='/products' element={<ProductsListing />} />
           <Route path='/product/:productId' element={<ProductDetails />} />
         </Route>
+
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   );

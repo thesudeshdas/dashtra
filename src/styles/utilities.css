@@ -34,6 +34,11 @@
   justify-content: space-between;
 }
 
+.flex-justify-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* ---GRID--- */
 .grid-center {
   display: grid;
@@ -51,12 +56,20 @@
   padding-right: 1rem;
 }
 
+.padding-sm {
+  padding: 0.5rem;
+}
+
 .padding-md {
   padding: 1rem;
 }
 
-.padding-sm {
-  padding: 0.5rem;
+.padding-ml {
+  padding: 1.5rem;
+}
+
+.padding-bottom-xl {
+  padding-bottom: 3rem;
 }
 
 /* ---MARGIN--- */
@@ -86,6 +99,10 @@
 
 .margin-bottom-md {
   margin-bottom: 1rem;
+}
+
+.margin-bottom-ml {
+  margin-bottom: 1.5rem;
 }
 
 .margin-bottom-lg {
