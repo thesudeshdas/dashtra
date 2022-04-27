@@ -1,17 +1,16 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth.context';
 import './Auth.css';
 
 export default function Login() {
-  const navigate = useNavigate();
-
   const {
     state,
     dispatch: authDispatch,
     signInWithEmailAndPassword,
   } = useAuth();
+
+  console.log(state.signInStatus);
 
   const [inputs, setInputs] = useState({
     email: '',

@@ -8,6 +8,7 @@ import {
   ProductDetails,
   ProductsListing,
 } from './pages';
+import RequireAuth from './utils/RequireAuth';
 
 function App() {
   return (
@@ -15,10 +16,18 @@ function App() {
       <Routes>
         <Route element={<NavFooterPages />}>
           <Route path='/' element={<Homepage />} />
-          <Route path='/cart' element={<Cart />} />
           <Route path='/home' element={<Homepage />} />
           <Route path='/products' element={<ProductsListing />} />
           <Route path='/product/:productId' element={<ProductDetails />} />
+
+          <Route
+            path='/cart'
+            element={
+              <RequireAuth>
+                <Cart />
+              </RequireAuth>
+            }
+          />
         </Route>
 
         <Route path='/login' element={<Login />} />

@@ -1,18 +1,27 @@
 import axios from 'axios';
 import { createContext, useContext, useReducer } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
   const navigate = useNavigate();
-  
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || '/';
+
+  const localUserCredentials = JSON.parse(
+    localStorage.getItem('userCredentials')
+  );
+
+  console.log({ localUserCredentials });
+
   const initialState = {
-    email: '',
-    name: '',
-    signInStatus: false,
-    userId: '',
-    authToken: '',
+    email: localUserCredentials?.email || '',
+    name: localUserCredentials?.name || '',
+    signInStatus: localUserCredentials?.signInStatus || false,
+    userId: localUserCredentials?.userId || '',
+    authToken: localUserCredentials?.authToken || '',
     errors: {
       email: null,
       password: null,
@@ -89,10 +98,12 @@ export default function AuthProvider({ children }) {
             email: response.data.signedUser.email,
             name: response.data.signedUser.name,
             signInStatus: true,
-            userId: response.data.signedUser.id,
+            userId: response.data.signedUser._id,
             authToken: response.data.accessToken,
           })
         );
+
+        navigate(from, { replace: true });
       }
     } catch (err) {
       // if (err.response.status === 404) {

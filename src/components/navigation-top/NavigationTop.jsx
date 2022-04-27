@@ -31,7 +31,7 @@ export default function NavigationTop() {
       </form>
       <ul className='flex-row'>
         <li className='grid-center margin-horizontal-md'>
-          <Link to='/profile' className='grid-center'>
+          <Link to='/login' className='grid-center'>
             <MiUser className='nav-top-icon' />
           </Link>
         </li>
