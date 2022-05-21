@@ -8,10 +8,13 @@ import {
   MajesticonsTextboxLine,
   MajesticonsTruckLine,
 } from '../../assets/icons';
+import { useCart } from '../../contexts/cart.context';
 import './product-details.css';
 
 export default function ProductDetails() {
   const { productId } = useParams();
+
+  const { state, addProductInServer } = useCart();
 
   const [product, setProduct] = useState({});
 
@@ -27,7 +30,9 @@ export default function ProductDetails() {
         console.log(error);
       }
     })();
-  }, []);
+  }, [productId]);
+
+  console.log({ product });
 
   return (
     <main id='page-product-details' className='flex-row'>
@@ -74,7 +79,12 @@ export default function ProductDetails() {
           id='product-details-CTA'
           className='flex-justify-space-between margin-vertical-md'
         >
-          <button className='button button-primary'>ADD TO CART</button>
+          <button
+            className='button button-primary'
+            onClick={() => addProductInServer(product)}
+          >
+            ADD TO CART
+          </button>
           <button className='button button-outline-secondary'>
             ADD TO CART
           </button>

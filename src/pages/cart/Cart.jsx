@@ -3,7 +3,9 @@ import { useCart } from '../../contexts/cart.context';
 import './Cart.css';
 
 export default function Cart() {
-  const { state } = useCart();
+  const {
+    state: { cartList, total },
+  } = useCart();
 
   return (
     <main className='page-cart'>
@@ -12,15 +14,11 @@ export default function Cart() {
         <div className='margin-vertical-sm padding-sm'>Available Offers</div>
         <div className='padding-sm'>2/2 items selcted</div>
         <ul className='margin-vertical-sm'>
-          <li className='margin-bottom-sm'>
-            <CardProductCart />
-          </li>
-          <li className='margin-bottom-sm'>
-            <CardProductCart />
-          </li>
-          <li className='margin-bottom-sm'>
-            <CardProductCart />
-          </li>
+          {cartList.map((product) => (
+            <li key={product._id} className='margin-bottom-sm'>
+              <CardProductCart details={product.product} />
+            </li>
+          ))}
         </ul>
       </section>
       <section className='section-price-details padding-md'>
@@ -43,7 +41,7 @@ export default function Cart() {
         </div>
         <h2 className='flex-justify-space-between font-size-md font-weight-600 margin-vertical-md'>
           Total Amount
-          <span>₹ 3999</span>
+          <span>₹ {total}</span>
         </h2>
         <button className='button button-primary'>PLACE ORDER</button>
       </section>
