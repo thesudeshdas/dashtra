@@ -1,7 +1,7 @@
 .nav-top {
   grid-area: nav;
   background-color: var(--COLOR_BRAND_ALPHA);
-  height: 7vh;
+  height: 4rem;
   color: var(--COLOR_TEXT_TWO);
   padding: 0 3rem;
 }

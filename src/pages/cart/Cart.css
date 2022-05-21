@@ -1,23 +1,24 @@
 .page-cart {
   grid-area: main;
-  height: 93vh;
+  height: calc(100vh - 4rem);
   overflow-y: scroll;
   width: 100vw;
   display: grid;
-  grid-template-columns: 7fr 5fr;
   grid-template-areas:
     'items details'
     'suggestions suggestions';
-  padding: 0 25vw;
 }
 
 .section-cart-items {
   grid-area: items;
+  width: 32rem;
+  justify-self: end;
   border-right: 1px solid var(--COLOR_TEXT_ONE);
 }
 
 .section-price-details {
   grid-area: details;
+  width: 24rem;
 }
 
 .section-cart-items > div {

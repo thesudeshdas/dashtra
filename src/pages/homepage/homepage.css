@@ -1,6 +1,6 @@
 #page-homepage {
   grid-area: main;
-  height: 93vh;
+  height: calc(100vh - 4rem);
   overflow-y: scroll;
 }
 
