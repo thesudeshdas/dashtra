@@ -7,15 +7,12 @@ import logoNike from '../../assets/images/logo-nike.png';
 
 export default function Homepage() {
   return (
-    <main id='page-homepage'>
-      <section id='homepage__section--hero'>
+    <main className='page-homepage'>
+      <section className='homepage__section--hero'>
         <img src={homepageHeroImg} alt='Something' className='image' />
       </section>
 
-      <section
-        id='homepage__section--categories'
-        className='flex-column flex-align-center'
-      >
+      <section className='homepage__section--categories flex-column flex-align-center'>
         <h2 className='margin-top-lg font-size-xl'>
           One stop solution for all your{' '}
           <span className='text-highlight'>FOOTBALLING</span> Needs
@@ -33,10 +30,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section
-        id='homepage__section--brands'
-        className='flex-column flex-align-center'
-      >
+      <section className='homepage__section--brands flex-column flex-align-center'>
         <h3 className='margin-vertical-lg font-size-lg'>Top Brands</h3>
         <ul className='brands-container flex-row flex-align-center'>
           <li>

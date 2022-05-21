@@ -1,19 +1,19 @@
-#page-homepage {
+.page-homepage {
   grid-area: main;
   height: calc(100vh - 4rem);
   overflow-y: scroll;
 }
 
-#homepage__section--hero img {
+.homepage__section--hero img {
   height: 80vh;
 }
 
-#homepage__section--categories h2 {
+.homepage__section--categories h2 {
   text-align: center;
   width: 40%;
 }
 
-#homepage__section--categories h2 + hr {
+.homepage__section--categories h2 + hr {
   background-color: var(--COLOR_BRAND_ALPHA_LIGHT);
   height: 0.5rem;
   width: 50%;

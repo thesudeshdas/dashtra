@@ -52,10 +52,10 @@ export default function ProductsListing() {
   );
 
   return (
-    <main id='page-products-listing' className='flex-row'>
+    <main className='page-products-listing flex-row'>
       <Filter handleFilters={setSelectedOptions} />
       <section className='padding-md'>
-        <ul id='products-container'>
+        <ul className='products-container'>
           {filteredArray.length > 0
             ? filteredArray.map((product) => (
                 <li key={product._id}>

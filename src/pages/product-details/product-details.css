@@ -1,10 +1,10 @@
-#page-product-details hr {
+.page-product-details hr {
   background-color: var(--COLOR_TEXT_ONE);
   border: none;
   height: 1px;
 }
 
-#page-product-details {
+.page-product-details {
   grid-area: main;
   height: calc(100vh - 4rem);
   overflow-y: scroll;
@@ -17,13 +17,13 @@
     'extra extra';
 }
 
-#page-product-details > nav {
+.page-product-details > nav {
   grid-area: nav;
 }
 
 /* ---PRODUCT IMAGES--- */
 
-#section-image-product-details {
+.section-image-product-details {
   grid-area: img;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -31,42 +31,42 @@
 }
 
 /* ? If only one image is there, use all the width available for the parent */
-#section-image-product-details img:only-child {
+.section-image-product-details img:only-child {
   width: calc(200% + 1rem);
 }
 
 /* --PRODUCT DETAILS--- */
 
-#page-product-details > section:nth-of-type(2) {
+.page-product-details > section:nth-of-type(2) {
   grid-area: desc;
   height: calc(100vh - 4rem);
 }
 
-#product-details-price > li:nth-of-type(2) {
+.product-details-price > li:nth-of-type(2) {
   text-decoration: line-through;
 }
 
-#product-details-price > li:nth-of-type(3) {
+.product-details-price > li:nth-of-type(3) {
   color: var(--COLOR_SEMANTIC_WARNING_DARK);
 }
 
-#product-details-CTA > button:nth-of-type(1) {
+.product-details-CTA > button:nth-of-type(1) {
   width: 60%;
 }
 
-#product-details-CTA > button:nth-of-type(2) {
+.product-details-CTA > button:nth-of-type(2) {
   width: 39%;
 }
 
-#page-product-details h3 {
+.page-product-details h3 {
   display: inline;
 }
 
-#form-pin-product-details > input[type='text'] {
+.form-pin-product-details > input[type='text'] {
   border-radius: 0.5rem;
   width: 50%;
 }
 
-#list-specifications > li {
+.list-specifications > li {
   width: 49%;
 }

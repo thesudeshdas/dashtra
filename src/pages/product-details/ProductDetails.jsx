@@ -35,16 +35,13 @@ export default function ProductDetails() {
   console.log({ product });
 
   return (
-    <main id='page-product-details' className='flex-row'>
+    <main className='page-product-details flex-row'>
       {/* // TODO - Add history here */}
       <nav className='padding-md'>
         <Link to='/'>Home</Link> / <Link to={'/football'}>Football</Link> /{' '}
         <Link to='/brands/nike'>Nike</Link>
       </nav>
-      <section
-        id='section-image-product-details'
-        className='flex-wrap flex-justify-space-between padding-md'
-      >
+      <section className='section-image-product-details flex-wrap flex-justify-space-between padding-md'>
         {product.images?.map((image) => (
           <img
             key={image._id || image.alt}
@@ -60,7 +57,7 @@ export default function ProductDetails() {
 
         <hr className='margin-vertical-sm' />
 
-        <ul id='product-details-price' className='flex-align-center'>
+        <ul className='product-details-price flex-align-center'>
           <li>
             <h2 className='font-weight-600'>₹ {product.price?.discounted}</h2>
           </li>
@@ -75,10 +72,7 @@ export default function ProductDetails() {
         </ul>
         <small>inclusive of all taxes</small>
 
-        <div
-          id='product-details-CTA'
-          className='flex-justify-space-between margin-vertical-md'
-        >
+        <div className='product-details-CTA flex-justify-space-between margin-vertical-md'>
           <button
             className='button button-primary'
             onClick={() => addProductInServer(product)}
@@ -97,7 +91,7 @@ export default function ProductDetails() {
           </span>
         </div>
 
-        <form id='form-pin-product-details' action='' className='flex-column'>
+        <form action='' className='form-pin-product-details flex-column'>
           <input
             type='text'
             placeholder='Enter a PIN code'
@@ -138,10 +132,7 @@ export default function ProductDetails() {
 
         <h4 className='margin-vertical-sm font-weight-500'>SPECIFICATIONS</h4>
 
-        <ul
-          id='list-specifications'
-          className='flex-wrap flex-justify-space-between font-weight-400'
-        >
+        <ul className='list-specifications flex-wrap flex-justify-space-between font-weight-400'>
           {product.specifications?.map((item) => (
             <li key={item._id || item.heading}>
               <label htmlFor='' className='font-size-sm'>

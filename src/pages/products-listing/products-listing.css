@@ -1,22 +1,22 @@
-#page-products-listing {
+.page-products-listing {
   grid-area: main;
   height: calc(100vh - 4rem);
 }
 
-#page-products-listing > aside {
-  width: 15%;
+.page-products-listing > aside {
+  width: 18rem;
   border-right: 2px solid var(--COLOR_TEXT_ONE);
 
   /* TODO - Add scroll in side nav later 
   overflow: scroll; */
 }
 
-#page-products-listing > section {
-  width: 85%;
+.page-products-listing > section {
+  width: calc(100% - 18rem);
   overflow-y: scroll;
 }
 
-#products-container {
+.products-container {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
