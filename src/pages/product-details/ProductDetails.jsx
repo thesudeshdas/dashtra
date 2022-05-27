@@ -80,7 +80,7 @@ export default function ProductDetails() {
             ADD TO CART
           </button>
           <button className='button button-outline-secondary'>
-            ADD TO CART
+            ADD TO WISHLIST
           </button>
         </div>
 
