@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { MiHeart } from '../../assets/icons';
+import { useWishlist } from '../../contexts/wishlist.context';
 import './card-product.css';
 
 export default function CardProduct({ details }) {
   const { _id, brand, images, name, price } = details;
+
+  const product = details;
+
+  const { addProductInServer } = useWishlist();
 
   return (
     <div className='card-product padding-md'>
@@ -27,7 +32,7 @@ export default function CardProduct({ details }) {
       <div className='card-product__container-hover padding-horizontal-md grid-center'>
         <button
           className='button button-outline-secondary flex-center'
-          onClick={() => console.log('add to wishlist')}
+          onClick={() => addProductInServer(product)}
         >
           <MiHeart className='margin-right-xs font-size-ml' />
           WISHLIST
