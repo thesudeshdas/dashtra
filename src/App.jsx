@@ -7,6 +7,7 @@ import {
   NavFooterPages,
   ProductDetails,
   ProductsListing,
+  Wishlist,
 } from './pages';
 import RequireAuth from './utils/RequireAuth';
 
@@ -22,10 +23,19 @@ function App() {
           <Route path='/product/:productId' element={<ProductDetails />} />
 
           <Route
-            path='cart'
+            path='/cart'
             element={
               <RequireAuth>
                 <Cart />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path='/wishlist'
+            element={
+              <RequireAuth>
+                <Wishlist />
               </RequireAuth>
             }
           />

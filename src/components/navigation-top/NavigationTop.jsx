@@ -39,7 +39,7 @@ export default function NavigationTop() {
           </Link>
         </li>
         <li className='grid-center margin-horizontal-md'>
-          <Link to='/profile' className='grid-center'>
+          <Link to='/wishlist' className='grid-center'>
             <MiHeart className='nav-top-icon' />
           </Link>
         </li>
