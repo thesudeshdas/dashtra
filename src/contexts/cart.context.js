@@ -41,11 +41,9 @@ export default function CartProvider({ children }) {
       case 'REMOVE_PRODUCT_FROM_CART':
         return {
           ...state,
-          cartList: [
-            ...state.cartList.filter(
-              (item) => item.product._id !== action.payload.product._id
-            ),
-          ],
+          cartList: state.cartList.filter(
+            (item) => item.product._id !== action.payload.product._id
+          ),
           total:
             state.total -
             action.payload.product.price.discounted *
@@ -85,23 +83,27 @@ export default function CartProvider({ children }) {
   };
 
   const removeProductFromServer = async (product) => {
-    const response = await axios.post(
-      `http://localhost:3000/cart/${userId}/remove`,
-      {
-        productId: product._id,
-        newTotal:
-          state.total -
-          product.price.discounted *
-            state.cartList.find((item) => item.product._id === product._id)
-              .quantity,
-      }
-    );
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/cart/${userId}/remove`,
+        {
+          productId: product._id,
+          newTotal:
+            state.total -
+            product.price.discounted *
+              state.cartList.find((item) => item.product._id === product._id)
+                .quantity,
+        }
+      );
 
-    if (response.status === 200) {
-      dispatch({
-        type: 'REMOVE_PRODUCT_FROM_CART',
-        payload: { product },
-      });
+      if (response.status === 200) {
+        dispatch({
+          type: 'REMOVE_PRODUCT_FROM_CART',
+          payload: { product },
+        });
+      }
+    } catch (error) {
+      console.log({ error });
     }
   };
 
