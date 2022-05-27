@@ -70,8 +70,6 @@ export default function CartProvider({ children }) {
       );
 
       if (response.status === 200) {
-        console.log('successfully added in server');
-
         dispatch({
           type: 'ADD_PRODUCT_TO_SERVER',
           payload: { product },
