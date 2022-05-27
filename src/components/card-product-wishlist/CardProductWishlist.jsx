@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
 import { MiClose, MiShoppingCart } from '../../assets/icons';
+import { useWishlist } from '../../contexts/wishlist.context';
 import './CardProductWishlist.css';
 
 export default function CardProductWishlist({ details }) {
   const { _id, brand, images, name, price } = details;
 
+  const { removeProductFromServer } = useWishlist();
+
   return (
     <div className='card-product--wishlist padding-md'>
-      <button className='font-size-ml'>
+      <button
+        onClick={() => removeProductFromServer({ _id })}
+        className='font-size-ml'
+      >
         <MiClose />
       </button>
 

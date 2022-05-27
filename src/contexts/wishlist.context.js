@@ -34,6 +34,14 @@ export default function WishlistProvider({ children }) {
           ],
         };
 
+      case 'REMOVE_PRODUCT_FROM_CART':
+        return {
+          ...state,
+          wishlist: state.wishlist.filter(
+            (item) => item.product._id !== action.payload.product._id
+          ),
+        };
+
       default:
         return state;
     }
@@ -53,6 +61,25 @@ export default function WishlistProvider({ children }) {
       if (response.status === 200) {
         dispatch({ type: 'ADD_PRODUCT_TO_SERVER', payload: { product } });
       }
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+
+  const removeProductFromServer = async (product) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/wishlist/${userId}/remove`,
+        {
+          productId: product._id,
+        }
+      );
+
+      if (response.status === 200) {
+        dispatch({ type: 'REMOVE_PRODUCT_FROM_CART', payload: { product } });
+      }
+
+      console.log({ response });
     } catch (error) {
       console.log({ error });
     }
@@ -80,7 +107,9 @@ export default function WishlistProvider({ children }) {
   }, [signInStatus, userId]);
 
   return (
-    <WishlistContext.Provider value={{ state, dispatch, addProductInServer }}>
+    <WishlistContext.Provider
+      value={{ state, dispatch, addProductInServer, removeProductFromServer }}
+    >
       {children}
     </WishlistContext.Provider>
   );
