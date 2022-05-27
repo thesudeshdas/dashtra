@@ -35,10 +35,7 @@ export default function CardProductWishlist({ details }) {
       </Link>
 
       <div className='card-product__container--wishlist grid-center'>
-        <button
-          className='button button-outline-secondary flex-center'
-          onClick={() => console.log('add to wishlist')}
-        >
+        <button className='button button-outline-secondary flex-center'>
           <MiShoppingCart className='margin-right-xs font-size-ml' />
           MOVE TO CART
         </button>

@@ -31,8 +31,8 @@ export default function CardProduct({ details }) {
 
       <div className='card-product__container-hover padding-horizontal-md grid-center'>
         <button
-          className='button button-outline-secondary flex-center'
           onClick={() => addProductInServer(product)}
+          className='button button-outline-secondary flex-center'
         >
           <MiHeart className='margin-right-xs font-size-ml' />
           WISHLIST
