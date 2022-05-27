@@ -8,6 +8,12 @@
   padding-bottom: 0;
 }
 
+.card-product--wishlist > button {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
 .card-product--wishlist img {
   width: calc(100% + 2rem);
   margin-top: -1rem;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MiShoppingCart } from '../../assets/icons';
+import { MiClose, MiShoppingCart } from '../../assets/icons';
 import './CardProductWishlist.css';
 
 export default function CardProductWishlist({ details }) {
@@ -7,6 +7,10 @@ export default function CardProductWishlist({ details }) {
 
   return (
     <div className='card-product--wishlist padding-md'>
+      <button className='font-size-ml'>
+        <MiClose />
+      </button>
+
       <Link to={`/product/${_id}`}>
         <img src={images[0].src} alt='Nike Strike' className='image' />
         <h4 className='font-weight-600'>{brand}</h4>
