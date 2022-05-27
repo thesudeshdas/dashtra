@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom';
 import { MiClose, MiShoppingCart } from '../../assets/icons';
+import { useCart } from '../../contexts/cart.context.js';
 import { useWishlist } from '../../contexts/wishlist.context';
 import './CardProductWishlist.css';
 
 export default function CardProductWishlist({ details }) {
   const { _id, brand, images, name, price } = details;
 
-  const { removeProductFromServer } = useWishlist();
+  const product = details;
+
+  const { addProductInServer: addToCartInServer } = useCart();
+  const { removeProductFromServer: removeFromWishlistInServer } = useWishlist();
 
   return (
     <div className='card-product--wishlist padding-md'>
       <button
-        onClick={() => removeProductFromServer({ _id })}
+        onClick={() => removeFromWishlistInServer({ _id })}
         className='font-size-ml'
       >
         <MiClose />
@@ -35,7 +39,13 @@ export default function CardProductWishlist({ details }) {
       </Link>
 
       <div className='card-product__container--wishlist grid-center'>
-        <button className='button button-outline-secondary flex-center'>
+        <button
+          onClick={() => {
+            addToCartInServer(product);
+            removeFromWishlistInServer({ _id });
+          }}
+          className='button button-outline-secondary flex-center'
+        >
           <MiShoppingCart className='margin-right-xs font-size-ml' />
           MOVE TO CART
         </button>
