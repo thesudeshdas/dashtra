@@ -23,12 +23,40 @@ export default function WishlistProvider({ children }) {
           wishlist: action.payload.wishlist.productsList,
         };
 
+      case 'ADD_PRODUCT_TO_SERVER':
+        return {
+          ...state,
+          wishlist: [
+            ...state.wishlist.filter(
+              (item) => item.product._id !== action.payload._id
+            ),
+            { product: action.payload.product },
+          ],
+        };
+
       default:
         return state;
     }
   };
 
   const [state, dispatch] = useReducer(wishlistReducer, initialState);
+
+  const addProductInServer = async (product) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/wishlist/${userId}/add`,
+        {
+          productId: product._id,
+        }
+      );
+
+      if (response.status === 200) {
+        dispatch({ type: 'ADD_PRODUCT_TO_SERVER', payload: { product } });
+      }
+    } catch (error) {
+      console.log({ error });
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -37,8 +65,6 @@ export default function WishlistProvider({ children }) {
           const response = await axios.get(
             `http://localhost:3000/wishlist/${userId}`
           );
-
-          console.log({ response });
 
           if (response.status === 200) {
             dispatch({
@@ -54,7 +80,7 @@ export default function WishlistProvider({ children }) {
   }, [signInStatus, userId]);
 
   return (
-    <WishlistContext.Provider value={{ state, dispatch }}>
+    <WishlistContext.Provider value={{ state, dispatch, addProductInServer }}>
       {children}
     </WishlistContext.Provider>
   );

@@ -9,12 +9,14 @@ import {
   MajesticonsTruckLine,
 } from '../../assets/icons';
 import { useCart } from '../../contexts/cart.context';
+import { useWishlist } from '../../contexts/wishlist.context';
 import './product-details.css';
 
 export default function ProductDetails() {
   const { productId } = useParams();
 
-  const { state, addProductInServer } = useCart();
+  const { addProductInServer: addToCartInServer } = useCart();
+  const { addProductInServer: addToWishlistInServer } = useWishlist();
 
   const [product, setProduct] = useState({});
 
@@ -74,12 +76,15 @@ export default function ProductDetails() {
 
         <div className='product-details-CTA flex-justify-space-between margin-vertical-md'>
           <button
+            onClick={() => addToCartInServer(product)}
             className='button button-primary'
-            onClick={() => addProductInServer(product)}
           >
             ADD TO CART
           </button>
-          <button className='button button-outline-secondary'>
+          <button
+            onClick={() => addToWishlistInServer(product)}
+            className='button button-outline-secondary'
+          >
             ADD TO WISHLIST
           </button>
         </div>
