@@ -1,0 +1,6 @@
+.sort {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--Z_SORT);
+}

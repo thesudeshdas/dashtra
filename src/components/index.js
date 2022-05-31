@@ -4,6 +4,7 @@ import CardProductCart from './card-product-cart/CardProductCart';
 import CardProductWishlist from './card-product-wishlist/CardProductWishlist';
 import Filter from './filter/Filter';
 import NavigationTop from './navigation-top/NavigationTop';
+import Sort from './sort/Sort';
 
 export {
   CardHomepageCategory,
@@ -12,4 +13,5 @@ export {
   CardProductWishlist,
   Filter,
   NavigationTop,
+  Sort,
 };

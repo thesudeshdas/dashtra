@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { CardProduct, Filter } from '../../components';
+import { CardProduct, Filter, Sort } from '../../components';
 import { useProducts } from '../../contexts/products.context';
 import { productsData } from '../../data/products.data';
 import {
@@ -8,6 +8,7 @@ import {
   filterBrand,
   filterProducts,
 } from '../../utils/filter.utils';
+import { sortProducts } from '../../utils/sort.utils';
 import './products-listing.css';
 
 export default function ProductsListing() {
@@ -41,6 +42,7 @@ export default function ProductsListing() {
       includeOutOfStock: false,
       fastDeliveryOnly: false,
     },
+    sortBy: 'relevance',
   });
 
   const filteredArray = filterProducts(
@@ -51,13 +53,16 @@ export default function ProductsListing() {
     selectedOptions.rating
   );
 
+  const sortedProducts = sortProducts(filteredArray, selectedOptions.sortBy);
+
   return (
     <main className='page-products-listing flex-row'>
       <Filter handleFilters={setSelectedOptions} />
       <section className='padding-md'>
+        <Sort handleSort={setSelectedOptions} />
         <ul className='products-container'>
-          {filteredArray.length > 0
-            ? filteredArray.map((product) => (
+          {sortedProducts.length > 0
+            ? sortedProducts.map((product) => (
                 <li key={product._id}>
                   <CardProduct details={product} />
                 </li>
