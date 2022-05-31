@@ -16,7 +16,10 @@ export default function Cart() {
         <ul className='margin-vertical-sm'>
           {cartList.map((product) => (
             <li key={product._id} className='margin-bottom-sm'>
-              <CardProductCart details={product.product} />
+              <CardProductCart
+                details={product.product}
+                quantity={product.quantity}
+              />
             </li>
           ))}
         </ul>

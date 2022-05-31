@@ -2,7 +2,7 @@ import { MiClose } from '../../assets/icons';
 import { useCart } from '../../contexts/cart.context';
 import './CardProductCart.css';
 
-export default function CardProductCart({ details }) {
+export default function CardProductCart({ details, quantity }) {
   const { removeProductFromServer } = useCart();
 
   const product = details;
@@ -13,13 +13,16 @@ export default function CardProductCart({ details }) {
       <div className='margin-left-sm'>
         <button
           onClick={() => removeProductFromServer(product)}
-          className='font-size-ml'
+          className='cart-delete-item font-size-ml'
         >
           <MiClose />
         </button>
         <h4 className='font-weight-600'>{product.brand}</h4>
         <h3 className='font-size-ms font-weight-400'>{product.name}</h3>
-        <p className='font-size-ms margin-vertical-xs'>Size: L</p>
+        <div className='flex-row font-size-ms margin-vertical-xs'>
+          <button className='button'>Size: S</button>
+          <button className='button margin-left-sm'>Qty: {quantity}</button>
+        </div>
         <p className='font-size-sm margin-vertical-xs'>
           <strong className='font-size-ms'>
             ₹ {product.price.discounted}{' '}

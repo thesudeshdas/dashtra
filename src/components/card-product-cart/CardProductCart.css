@@ -11,8 +11,12 @@
   max-width: 8rem;
 }
 
-.card-product-cart button {
+.card-product-cart .cart-delete-item {
   position: absolute;
   top: 0.25rem;
   right: 0.25rem;
+}
+
+.card-product-cart button {
+  padding: 0.25rem 0.75rem;
 }
