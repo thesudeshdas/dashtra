@@ -14,6 +14,8 @@ export default function Sort({ handleSort }) {
         <option value='relevance'> Relevance</option>
         <option value='price-low-to-high'>Price - Low to High</option>
         <option value='price-high-to-low'>Price - High to Low</option>
+        <option value='rating-low-to-high'>Rating - Low to High</option>
+        <option value='rating-high-to-low'>Rating - High to Low</option>
       </select>
     </div>
   );
