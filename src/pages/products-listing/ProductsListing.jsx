@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { CardProduct, Filter, Sort } from '../../components';
+import { useModal } from '../../contexts/modal.context';
 import { useProducts } from '../../contexts/products.context';
 import { productsData } from '../../data/products.data';
 import {

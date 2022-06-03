@@ -1,9 +1,14 @@
 import { MiClose } from '../../assets/icons';
 import { useCart } from '../../contexts/cart.context';
+import { useModal } from '../../contexts/modal.context';
 import './CardProductCart.css';
+
+import { ModalQuantityCart } from '../index';
 
 export default function CardProductCart({ details, quantity }) {
   const { removeProductFromServer } = useCart();
+
+  const { setShowModal } = useModal();
 
   const product = details;
 
@@ -21,7 +26,14 @@ export default function CardProductCart({ details, quantity }) {
         <h3 className='font-size-ms font-weight-400'>{product.name}</h3>
         <div className='flex-row font-size-ms margin-vertical-xs'>
           <button className='button'>Size: S</button>
-          <button className='button margin-left-sm'>Qty: {quantity}</button>
+          <button
+            className='button margin-left-sm'
+            onClick={() =>
+              setShowModal(<ModalQuantityCart itemQuantity={quantity} />)
+            }
+          >
+            Qty: {quantity}
+          </button>
         </div>
         <p className='font-size-sm margin-vertical-xs'>
           <strong className='font-size-ms'>
