@@ -29,7 +29,9 @@ export default function CardProductCart({ details, quantity }) {
           <button
             className='button margin-left-sm'
             onClick={() =>
-              setShowModal(<ModalQuantityCart itemQuantity={quantity} />)
+              setShowModal(
+                <ModalQuantityCart product={product} itemQuantity={quantity} />
+              )
             }
           >
             Qty: {quantity}

@@ -1,7 +1,10 @@
 import { MiClose } from '../../assets/icons';
+import { useCart } from '../../contexts/cart.context';
 import './ModalQuantityCart.css';
 
-export default function ModalQuantityCart({ itemQuantity }) {
+export default function ModalQuantityCart({ product, itemQuantity }) {
+  const { updateQuantityInServer } = useCart();
+
   const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
@@ -15,13 +18,18 @@ export default function ModalQuantityCart({ itemQuantity }) {
       <ul>
         {quantityArray.map((quantity) => (
           <li>
-            <button
-              className={`grid-center ${
-                itemQuantity === quantity && 'modal-active-quantity'
-              }`}
-            >
-              {quantity}
-            </button>
+            {itemQuantity === quantity ? (
+              <button className='grid-center modal-active-quantity'>
+                {quantity}
+              </button>
+            ) : (
+              <button
+                className='grid-center'
+                onClick={() => updateQuantityInServer(product, quantity)}
+              >
+                {quantity}
+              </button>
+            )}
           </li>
         ))}
       </ul>

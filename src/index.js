@@ -11,17 +11,17 @@ import ModalProvider from './contexts/modal.context';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ModalProvider>
-        <AuthProvider>
-          <ProductsProvider>
-            <CartProvider>
-              <WishlistProvider>
+      <AuthProvider>
+        <ProductsProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <ModalProvider>
                 <App />
-              </WishlistProvider>
-            </CartProvider>
-          </ProductsProvider>
-        </AuthProvider>
-      </ModalProvider>
+              </ModalProvider>
+            </WishlistProvider>
+          </CartProvider>
+        </ProductsProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

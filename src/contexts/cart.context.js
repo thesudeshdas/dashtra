@@ -52,6 +52,21 @@ export default function CartProvider({ children }) {
               ).quantity,
         };
 
+      case 'UPDATE_QUANTITY_IN_CART':
+        return {
+          ...state,
+          cartList: [
+            ...state.cartList.filter(
+              (item) => item.product._id !== action.payload.product._id
+            ),
+            {
+              product: action.payload.product,
+              quantity: action.payload.quantity,
+            },
+          ],
+          total: action.payload.total,
+        };
+
       default:
         return state;
     }
@@ -105,6 +120,35 @@ export default function CartProvider({ children }) {
     }
   };
 
+  const updateQuantityInServer = async (product, quantity) => {
+    try {
+      const reducer = (acc, cur) =>
+        cur.product._id !== product._id
+          ? acc + cur.product.price.discounted
+          : acc + product.price.discounted * quantity;
+
+      const newTotal = state.cartList.reduce(reducer, 0);
+
+      const response = await axios.post(
+        `http://localhost:3000/cart/${userId}/update`,
+        {
+          productId: product._id,
+          newQuantity: quantity,
+          newTotal: newTotal,
+        }
+      );
+
+      if (response.status === 200) {
+        dispatch({
+          type: 'UPDATE_QUANTITY_IN_CART',
+          payload: { product, quantity, total: newTotal },
+        });
+      }
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -128,7 +172,13 @@ export default function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ state, dispatch, addProductInServer, removeProductFromServer }}
+      value={{
+        state,
+        dispatch,
+        addProductInServer,
+        removeProductFromServer,
+        updateQuantityInServer,
+      }}
     >
       {children}
     </CartContext.Provider>
