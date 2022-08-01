@@ -210,6 +210,14 @@
   text-decoration: line-through;
 }
 
+/* ---TABLET VIEW--- */
+@media (max-width: 768px) {
+  .margin-vertical-lg {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 /* ---MOBILE VIEW--- */
 @media (max-width: 540px) {
   .padding-md {

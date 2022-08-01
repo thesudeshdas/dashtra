@@ -10,7 +10,7 @@ import {
 } from '../../assets/icons';
 import { useCart } from '../../contexts/cart.context';
 import { useWishlist } from '../../contexts/wishlist.context';
-import './product-details.css';
+import './ProductDetails.css';
 
 export default function ProductDetails() {
   const { productId } = useParams();
