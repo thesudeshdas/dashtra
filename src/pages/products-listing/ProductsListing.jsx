@@ -1,18 +1,15 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { CardProduct, Filter, Sort } from '../../components';
-import { useModal } from '../../contexts/modal.context';
 import { useProducts } from '../../contexts/products.context';
-import { productsData } from '../../data/products.data';
-import {
-  categoriseProducts,
-  filterBrand,
-  filterProducts,
-} from '../../utils/filter.utils';
+import { useSearch } from '../../contexts/search.context';
+import { filterProducts } from '../../utils/filter.utils';
 import { sortProducts } from '../../utils/sort.utils';
 import './products-listing.css';
 
 export default function ProductsListing() {
+  const { searchProducts } = useSearch();
+
   const {
     state: { productsList },
     dispatch: productsDispatch,
@@ -48,8 +45,10 @@ export default function ProductsListing() {
     sortBy: 'relevance',
   });
 
+  const searchedProducts = searchProducts(productsList);
+
   const filteredArray = filterProducts(
-    productsList,
+    searchedProducts,
     selectedOptions.categories,
     selectedOptions.brands,
     selectedOptions.price,
