@@ -94,8 +94,12 @@ export default function Filter({ handleFilters }) {
         onChange={handlePrice}
       />
       <div className='flex-justify-space-between'>
-        <label className='font-size-sm'>Min: ₹ {minPrice}</label>
-        <label className='font-size-sm'>Max: ₹ {maxPrice}</label>
+        <label className='font-size-sm'>
+          Min: ₹ {minPrice == 'Infinity' ? 0 : minPrice}
+        </label>
+        <label className='font-size-sm'>
+          Max: ₹ {maxPrice == '-Infinity' ? 0 : maxPrice}
+        </label>
       </div>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>Ratings</h2>
