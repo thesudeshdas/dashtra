@@ -7,13 +7,15 @@ export default function Filter({ handleFilters }) {
     state: { productsList },
   } = useProducts();
 
-  const minPrice = Math.min(
-    ...productsList.map((product) => product.price.discounted)
-  );
+  const minPrice =
+    productsList.length > 0
+      ? Math.min(...productsList.map((product) => product.price.discounted))
+      : 0;
 
-  const maxPrice = Math.max(
-    ...productsList.map((product) => product.price.discounted)
-  );
+  const maxPrice =
+    productsList.length > 0
+      ? Math.max(...productsList.map((product) => product.price.discounted))
+      : 100000;
 
   const handleCategories = (e) => {
     handleFilters((prevOptions) => ({
@@ -94,12 +96,8 @@ export default function Filter({ handleFilters }) {
         onChange={handlePrice}
       />
       <div className='flex-justify-space-between'>
-        <label className='font-size-sm'>
-          Min: ₹ {minPrice == 'Infinity' ? 0 : minPrice}
-        </label>
-        <label className='font-size-sm'>
-          Max: ₹ {maxPrice == '-Infinity' ? 0 : maxPrice}
-        </label>
+        <label className='font-size-sm'>Min: ₹ {minPrice}</label>
+        <label className='font-size-sm'>Max: ₹ {maxPrice}</label>
       </div>
 
       <h2 className='margin-top-md font-size-md font-weight-600'>Ratings</h2>
