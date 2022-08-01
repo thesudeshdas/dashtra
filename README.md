@@ -11,3 +11,10 @@ Photo by <a href="https://unsplash.com/@zelladun?utm_source=unsplash&utm_medium=
 - For data files, use filName.data.js
 - For context files, use contextName.context.js
 - Why this? This helps in understanding what code the files has & naviagtion is easy
+
+## Breakpoints -
+
+Desktop - 1200px & >
+Laptop - 992px & >
+Tablet - 768px & >
+Mobile - 540px & >

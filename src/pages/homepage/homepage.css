@@ -1,3 +1,4 @@
+/* ---DESKTOP VIEW--- */
 .page-homepage {
   grid-area: main;
   height: calc(100vh - 4rem);
@@ -73,4 +74,30 @@
 
 .brands-container li img {
   width: 80%;
+}
+
+/* ---TABLET VIEW--- */
+@media (max-width: 992px) {
+  .homepage__section--hero img {
+    height: 30rem;
+  }
+
+  .homepage__section--categories h2 {
+    width: 80%;
+  }
+
+  .homepage__section--categories h2 + hr {
+    width: 80%;
+  }
+
+  /* ---CATEGORIES CONTAINER--- */
+  .categories-container {
+    width: 80%;
+    height: 50rem;
+  }
+
+  /* ---BRANDS CONTAINER--- */
+  .brands-container {
+    width: 80%;
+  }
 }
