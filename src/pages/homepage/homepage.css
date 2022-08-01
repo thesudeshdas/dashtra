@@ -3,7 +3,7 @@
   grid-area: main;
   height: calc(100vh - 4rem);
   overflow-y: scroll;
-  width: auto;
+  width: 100vw;
 }
 
 .homepage__section--hero img {
