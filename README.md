@@ -14,7 +14,7 @@ Photo by <a href="https://unsplash.com/@zelladun?utm_source=unsplash&utm_medium=
 
 ## Breakpoints -
 
-Desktop - 1200px & >
-Laptop - 992px & >
+Desktop - 1440px & >
+Laptop - 1024px & >
 Tablet - 768px & >
 Mobile - 540px & >

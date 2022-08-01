@@ -209,3 +209,11 @@
 .text-strike {
   text-decoration: line-through;
 }
+
+/* ---MOBILE VIEW--- */
+@media (max-width: 540px) {
+  /* ---FONT--- */
+  .font-size-xl {
+    font-size: 2rem;
+  }
+}
