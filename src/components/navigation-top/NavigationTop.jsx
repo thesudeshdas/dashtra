@@ -2,6 +2,7 @@ import './navigation-top.css';
 
 import { Link } from 'react-router-dom';
 import { MiHeart, MiSearch, MiShoppingCart, MiUser } from '../../assets/icons';
+import SearchBar from '../search-bar/SearchBar';
 
 export default function NavigationTop() {
   return (
@@ -24,14 +25,9 @@ export default function NavigationTop() {
           <a href='/products'>Fitness</a>
         </li>
       </ul>
-      <form className='nav-top-search-bar flex-row flex-align-center margin-right-md'>
-        <MiSearch className='nav-top-search-bar__icon margin-left-sm' />
-        <input
-          type='search'
-          placeholder='Search for products, brands and more'
-          className='padding-sm'
-        />
-      </form>
+
+      <SearchBar />
+
       <ul className='flex-row'>
         <li className='grid-center margin-horizontal-md'>
           <Link to='/login' className='grid-center'>

@@ -5,6 +5,7 @@ import CardProductWishlist from './card-product-wishlist/CardProductWishlist';
 import Filter from './filter/Filter';
 import ModalQuantityCart from './modal-quantity-cart/ModalQuantityCart';
 import NavigationTop from './navigation-top/NavigationTop';
+import SearchBar from './search-bar/SearchBar';
 import Sort from './sort/Sort';
 
 export {
@@ -15,5 +16,6 @@ export {
   Filter,
   ModalQuantityCart,
   NavigationTop,
+  SearchBar,
   Sort,
 };
