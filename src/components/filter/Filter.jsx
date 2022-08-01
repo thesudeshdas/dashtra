@@ -105,7 +105,8 @@ export default function Filter({ handleFilters }) {
           .options.map((option) => (
             <li key={option}>
               <input
-                type='checkbox'
+                name='rating'
+                type='radio'
                 id={option}
                 value={option}
                 onChange={handleRatings}
