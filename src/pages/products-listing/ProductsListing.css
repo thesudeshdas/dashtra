@@ -1,0 +1,62 @@
+/* ---DESKTOP VIEW--- */
+.page-products-listing {
+  grid-area: main;
+  height: calc(100vh - 4rem);
+}
+
+.page-products-listing > aside {
+  width: 18rem;
+  border-right: 2px solid var(--COLOR_TEXT_ONE);
+
+  /* TODO - Add scroll in side nav later 
+  overflow: scroll; */
+}
+
+.page-products-listing > section {
+  width: calc(100% - 18rem);
+  overflow-y: scroll;
+}
+
+.products-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+/* ---LAPTOP VIEW--- */
+@media (max-width: 1024px) {
+  .page-products-listing > aside {
+    width: 14rem;
+  }
+
+  .page-products-listing > section {
+    width: calc(100% - 14rem);
+  }
+}
+
+/* ---TABLET VIEW - Looks good with the laptop view properties--- */
+
+/* ---MOBILE VIEW--- */
+@media (max-width: 540px) {
+  .page-products-listing {
+    width: calc(100vw + 8px);
+  }
+
+  .page-products-listing > aside {
+    /* TODO - Make a filter for mobile separately */
+    display: none;
+  }
+
+  .page-products-listing > section {
+    padding: 0;
+    width: 100%;
+  }
+
+  .products-container {
+    background-color: var(--COLOR_NEUTRAL_ALPHA_DARK);
+    padding: 1px;
+    gap: 1px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}

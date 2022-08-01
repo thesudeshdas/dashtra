@@ -5,7 +5,7 @@ import { useProducts } from '../../contexts/products.context';
 import { useSearch } from '../../contexts/search.context';
 import { filterProducts } from '../../utils/filter.utils';
 import { sortProducts } from '../../utils/sort.utils';
-import './products-listing.css';
+import './ProductsListing.css';
 
 export default function ProductsListing() {
   const { searchProducts } = useSearch();

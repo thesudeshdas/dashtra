@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MajesticonsStar, MiHeart } from '../../assets/icons';
 import { useWishlist } from '../../contexts/wishlist.context';
-import './card-product.css';
+import './CardProduct.css';
 
 export default function CardProduct({ details }) {
   const { _id, brand, images, name, price } = details;

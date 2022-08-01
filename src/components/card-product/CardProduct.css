@@ -5,6 +5,7 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  background-color: var(--COLOR_BACKGROUND_ALPHA);
 }
 
 .card-product img {
@@ -17,10 +18,6 @@
 .card-product-rating {
   position: absolute;
   top: 14rem;
-}
-
-.card-product:hover .card-product__container-hover {
-  opacity: 1;
 }
 
 .card-product__container-hover {
@@ -37,4 +34,33 @@
 .card-product__container-hover > button {
   padding: 0.5rem;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .card-product:hover .card-product__container-hover {
+    opacity: 1;
+  }
+}
+
+/* ---MOBILE VIEW--- */
+@media (max-width: 540px) {
+  .card-product {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+  }
+
+  .card-product img {
+    width: calc(100% + 1rem);
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+  }
+
+  .card-product-rating {
+    top: 12rem;
+  }
+
+  .card-product__container-hover {
+    display: none;
+  }
 }

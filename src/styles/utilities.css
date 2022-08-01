@@ -212,6 +212,10 @@
 
 /* ---MOBILE VIEW--- */
 @media (max-width: 540px) {
+  .padding-md {
+    padding: 0.5rem;
+  }
+
   /* ---FONT--- */
   .font-size-xl {
     font-size: 2rem;
