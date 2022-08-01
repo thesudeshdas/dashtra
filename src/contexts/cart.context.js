@@ -77,7 +77,7 @@ export default function CartProvider({ children }) {
   const addProductInServer = async (product) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/cart/${userId}/add`,
+        `${process.env.REACT_APP_SERVER_URL}cart/${userId}/add`,
         {
           productId: product._id,
           newTotal: state.total + product.price.discounted,
@@ -98,7 +98,7 @@ export default function CartProvider({ children }) {
   const removeProductFromServer = async (product) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/cart/${userId}/remove`,
+        `${process.env.REACT_APP_SERVER_URL}cart/${userId}/remove`,
         {
           productId: product._id,
           newTotal:
@@ -130,7 +130,7 @@ export default function CartProvider({ children }) {
       const newTotal = state.cartList.reduce(reducer, 0);
 
       const response = await axios.post(
-        `http://localhost:3000/cart/${userId}/update`,
+        `${process.env.REACT_APP_SERVER_URL}cart/${userId}/update`,
         {
           productId: product._id,
           newQuantity: quantity,
@@ -154,7 +154,7 @@ export default function CartProvider({ children }) {
       try {
         if (userId) {
           const response = await axios.get(
-            `http://localhost:3000/cart/${userId}`
+            `${process.env.REACT_APP_SERVER_URL}cart/${userId}`
           );
 
           if (response.status === 200) {

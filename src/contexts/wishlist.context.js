@@ -52,7 +52,7 @@ export default function WishlistProvider({ children }) {
   const addProductInServer = async (product) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/wishlist/${userId}/add`,
+        `${process.env.REACT_APP_SERVER_URL}wishlist/${userId}/add`,
         {
           productId: product._id,
         }
@@ -69,7 +69,7 @@ export default function WishlistProvider({ children }) {
   const removeProductFromServer = async (product) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/wishlist/${userId}/remove`,
+        `${process.env.REACT_APP_SERVER_URL}wishlist/${userId}/remove`,
         {
           productId: product._id,
         }
@@ -90,7 +90,7 @@ export default function WishlistProvider({ children }) {
       try {
         if (userId) {
           const response = await axios.get(
-            `http://localhost:3000/wishlist/${userId}`
+            `${process.env.REACT_APP_SERVER_URL}wishlist/${userId}`
           );
 
           if (response.status === 200) {

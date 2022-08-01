@@ -73,9 +73,15 @@ export default function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   const signInWithEmailAndPassword = async (user) => {
+    
+    
+    
     try {
+      
+      console.log(process.env.REACT_APP_SERVER_URL);
+      
       const response = await axios.post(
-        'http://localhost:3000/users/sign-in',
+        `${process.env.REACT_APP_SERVER_URL}users/sign-in`,
         user
       );
 

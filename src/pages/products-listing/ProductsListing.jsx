@@ -21,7 +21,9 @@ export default function ProductsListing() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('http://localhost:3000/products');
+        const response = await axios.get(
+          `${process.env.REACT_APP_SERVER_URL}products`
+        );
 
         response.status === 200 &&
           productsDispatch({
@@ -29,7 +31,7 @@ export default function ProductsListing() {
             payload: { productsList: response.data.productsList },
           });
       } catch (error) {
-        console.log('error whiel fetching');
+        console.log('error whiel fetching', { error });
       }
     })();
   }, []);

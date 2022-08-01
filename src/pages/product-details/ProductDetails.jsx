@@ -24,7 +24,7 @@ export default function ProductDetails() {
     (async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/products/${productId}`
+          `${process.env.REACT_APP_SERVER_URL}products/${productId}`
         );
 
         response.status === 200 && setProduct(response.data.product);
