@@ -14,6 +14,11 @@
   aspect-ratio: 1/1;
 }
 
+.card-product-rating {
+  position: absolute;
+  top: 14rem;
+}
+
 .card-product:hover .card-product__container-hover {
   opacity: 1;
 }

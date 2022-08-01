@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MiHeart } from '../../assets/icons';
+import { MajesticonsStar, MiHeart } from '../../assets/icons';
 import { useWishlist } from '../../contexts/wishlist.context';
 import './card-product.css';
 
@@ -14,6 +14,9 @@ export default function CardProduct({ details }) {
     <div className='card-product padding-md'>
       <Link to={`/product/${_id}`}>
         <img src={images[0].src} alt='Nike Strike' className='image' />
+        <div className='card-product-rating flex-align-center font-weight-600 font-size-sm'>
+          4.3 <MajesticonsStar />
+        </div>
         <h4 className='font-weight-600'>{brand}</h4>
         <h3 className='font-size-ms font-weight-400'>{name}</h3>
         <p className='font-size-sm'>
