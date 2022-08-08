@@ -15,7 +15,7 @@ import './ProductDetails.css';
 export default function ProductDetails() {
   const { productId } = useParams();
 
-  const { addProductInServer: addToCartInServer } = useCart();
+  const { state: cartState, addProductInServer: addToCartInServer } = useCart();
   const { addProductInServer: addToWishlistInServer } = useWishlist();
 
   const [product, setProduct] = useState({});
@@ -34,7 +34,11 @@ export default function ProductDetails() {
     })();
   }, [productId]);
 
-  console.log({ product });
+  const existsInCart = cartState.cartList.find(
+    (item) => item.product._id == productId
+  );
+
+  console.log({ cartState, product, existsInCart });
 
   return (
     <main className='page-product-details flex-row'>
@@ -75,12 +79,19 @@ export default function ProductDetails() {
         <small>inclusive of all taxes</small>
 
         <div className='product-details-CTA flex-justify-space-between margin-vertical-md'>
-          <button
-            onClick={() => addToCartInServer(product)}
-            className='button button-primary'
-          >
-            ADD TO CART
-          </button>
+          {existsInCart === undefined ? (
+            <button
+              onClick={() => addToCartInServer(product)}
+              className='button button-primary'
+            >
+              ADD TO CART
+            </button>
+          ) : (
+            <Link to='/cart'>
+              <button className='button button-primary'>GO TO CART</button>
+            </Link>
+          )}
+
           <button
             onClick={() => addToWishlistInServer(product)}
             className='button button-outline-secondary'
