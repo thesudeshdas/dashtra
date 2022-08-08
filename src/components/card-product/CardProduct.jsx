@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
-import { MajesticonsStar, MiHeart } from '../../assets/icons';
+import {
+  IcRoundFavorite,
+  IcRoundFavoriteBorder,
+  MajesticonsStar,
+} from '../../assets/icons';
 import { useWishlist } from '../../contexts/wishlist.context';
 import './CardProduct.css';
 
@@ -8,7 +12,11 @@ export default function CardProduct({ details }) {
 
   const product = details;
 
-  const { addProductInServer } = useWishlist();
+  const { state: wishlistState, addProductInServer } = useWishlist();
+
+  const existsInWishlist = wishlistState.wishlist.find(
+    (item) => item.product._id == _id
+  );
 
   return (
     <div className='card-product padding-md'>
@@ -33,13 +41,20 @@ export default function CardProduct({ details }) {
       </Link>
 
       <div className='card-product__container-hover padding-horizontal-md grid-center'>
-        <button
-          onClick={() => addProductInServer(product)}
-          className='button button-outline-secondary flex-center'
-        >
-          <MiHeart className='margin-right-xs font-size-ml' />
-          WISHLIST
-        </button>
+        {existsInWishlist === undefined ? (
+          <button
+            onClick={() => addProductInServer(product)}
+            className='button button-outline-secondary flex-center'
+          >
+            <IcRoundFavoriteBorder className='margin-right-xs font-size-ml' />
+            WISHLIST
+          </button>
+        ) : (
+          <button className='button button-outline-secondary flex-center'>
+            <IcRoundFavorite className='margin-right-xs font-size-ml' />
+            WISHLISTED
+          </button>
+        )}
       </div>
     </div>
   );
