@@ -16,7 +16,8 @@ export default function ProductDetails() {
   const { productId } = useParams();
 
   const { state: cartState, addProductInServer: addToCartInServer } = useCart();
-  const { addProductInServer: addToWishlistInServer } = useWishlist();
+  const { state: wishlistState, addProductInServer: addToWishlistInServer } =
+    useWishlist();
 
   const [product, setProduct] = useState({});
 
@@ -38,7 +39,11 @@ export default function ProductDetails() {
     (item) => item.product._id == productId
   );
 
-  console.log({ cartState, product, existsInCart });
+  const existsInWishlist = wishlistState.wishlist.find(
+    (item) => item.product._id == productId
+  );
+
+  console.log({ cartState, product, existsInCart, existsInWishlist });
 
   return (
     <main className='page-product-details flex-row'>
@@ -87,17 +92,23 @@ export default function ProductDetails() {
               ADD TO CART
             </button>
           ) : (
-            <Link to='/cart'>
-              <button className='button button-primary'>GO TO CART</button>
-            </Link>
+            <button className='button button-primary'>
+              <Link to='/cart'>GO TO CART </Link>
+            </button>
           )}
 
-          <button
-            onClick={() => addToWishlistInServer(product)}
-            className='button button-outline-secondary'
-          >
-            ADD TO WISHLIST
-          </button>
+          {existsInWishlist === undefined ? (
+            <button
+              onClick={() => addToWishlistInServer(product)}
+              className='button button-outline-secondary'
+            >
+              ADD TO WISHLIST
+            </button>
+          ) : (
+            <button className='button button-outline-secondary'>
+              <Link to='/wishlist'>GO TO WISHLIST</Link>
+            </button>
+          )}
         </div>
 
         <div className='flex-row flex-align-center margin-vertical-sm'>
