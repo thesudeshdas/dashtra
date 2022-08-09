@@ -7,7 +7,10 @@ export default function SearchBar() {
   const { searchStr, setSearchStr } = useSearch();
 
   return (
-    <form className='nav-top-search-bar flex-row flex-align-center margin-right-md'>
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className='nav-top-search-bar flex-row flex-align-center margin-right-md'
+    >
       <MiSearch className='nav-top-search-bar__icon margin-left-sm' />
       <input
         type='search'
