@@ -47,13 +47,17 @@ export default function ProductsListing() {
 
   const searchedProducts = searchProducts(productsList);
 
-  const filteredArray = filterProducts(
-    searchedProducts,
-    selectedOptions.categories,
-    selectedOptions.brands,
-    selectedOptions.price,
-    selectedOptions.rating
-  );
+  // ? - if searchedProducts are empty, no need to fitler
+  const filteredArray =
+    searchedProducts.length > 0
+      ? filterProducts(
+          searchedProducts,
+          selectedOptions.categories,
+          selectedOptions.brands,
+          selectedOptions.price,
+          selectedOptions.rating
+        )
+      : searchedProducts;
 
   const sortedProducts = sortProducts(filteredArray, selectedOptions.sortBy);
 

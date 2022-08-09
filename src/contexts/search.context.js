@@ -9,8 +9,8 @@ export default function SearchProvider({ children }) {
     products.length > 0
       ? products.filter(
           (product) =>
-            product.name.toLowerCase().includes(searchStr) ||
-            product.brand.toLowerCase().includes(searchStr)
+            product.name.toLowerCase().includes(searchStr.toLowerCase()) ||
+            product.brand.toLowerCase().includes(searchStr.toLowerCase())
         )
       : products;
 
