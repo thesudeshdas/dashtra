@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import { CardProduct, Filter, Sort } from '../../components';
 import { useProducts } from '../../contexts/products.context';
 import { useSearch } from '../../contexts/search.context';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { filterProducts } from '../../utils/filter.utils';
 import { sortProducts } from '../../utils/sort.utils';
 import './ProductsListing.css';
 
 export default function ProductsListing() {
   const { searchProducts } = useSearch();
+
+  useDocumentTitle('Dashtra | Products');
 
   const {
     state: { productsList },

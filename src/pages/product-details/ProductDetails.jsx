@@ -10,6 +10,7 @@ import {
 } from '../../assets/icons';
 import { useCart } from '../../contexts/cart.context';
 import { useWishlist } from '../../contexts/wishlist.context';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import './ProductDetails.css';
 
 export default function ProductDetails() {
@@ -21,6 +22,8 @@ export default function ProductDetails() {
 
   const [product, setProduct] = useState({});
 
+  const { setDocTitle } = useDocumentTitle('Dashtra');
+
   useEffect(() => {
     (async () => {
       try {
@@ -29,6 +32,7 @@ export default function ProductDetails() {
         );
 
         response.status === 200 && setProduct(response.data.product);
+        setDocTitle(`Dashtra | ${response.data.product.name}`);
       } catch (error) {
         console.log(error);
       }
@@ -42,8 +46,6 @@ export default function ProductDetails() {
   const existsInWishlist = wishlistState.wishlist.find(
     (item) => item.product._id == productId
   );
-
-  console.log({ cartState, product, existsInCart, existsInWishlist });
 
   return (
     <main className='page-product-details flex-row'>
