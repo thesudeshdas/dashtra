@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { MiSearch } from '../../assets/icons';
 import { useSearch } from '../../contexts/search.context';
 import './SearchBar.css';
 
 export default function SearchBar() {
-  const { searchStr, setSearchStr } = useSearch();
+  const { setSearchStr } = useSearch();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    if (location.pathname !== '/products') {
+      navigate('/products', { replace: true });
+    }
+
+    setSearchStr(e.target.value);
+  };
 
   return (
     <form
@@ -15,7 +26,7 @@ export default function SearchBar() {
       <input
         type='search'
         placeholder='Search for products, brands and more'
-        onChange={(e) => setSearchStr(e.target.value)}
+        onChange={handleChange}
         className='padding-sm'
       />
     </form>
