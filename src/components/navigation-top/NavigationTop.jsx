@@ -13,16 +13,16 @@ export default function NavigationTop() {
 
       <ul className='nav-top-categories flex-row'>
         <li className='margin-horizontal-md'>
-          <a href='/products'>Football</a>
+          <a href='/products/?category=football'>Football</a>
         </li>
         <li className='margin-horizontal-md'>
-          <a href='/products'>Accessories</a>
+          <a href='/products/?category=accessories'>Accessories</a>
         </li>
         <li className='margin-horizontal-md'>
-          <a href='/products'>Clothing</a>
+          <a href='/products/?category=clothing'>Clothing</a>
         </li>
         <li className='margin-horizontal-md'>
-          <a href='/products'>Fitness</a>
+          <a href='/products/?category=fitness'>Fitness</a>
         </li>
       </ul>
 

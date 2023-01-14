@@ -1,3 +1,4 @@
+import { createSearchParams, useSearchParams } from 'react-router-dom';
 import { useProducts } from '../../contexts/products.context';
 import { optionsFilterData } from '../../data/optionsFilter.data';
 import './filter.css';
@@ -6,6 +7,10 @@ export default function Filter({ handleFilters }) {
   const {
     state: { productsList },
   } = useProducts();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const category = searchParams.get('category');
 
   const minPrice =
     productsList.length > 0
@@ -18,6 +23,10 @@ export default function Filter({ handleFilters }) {
       : 100000;
 
   const handleCategories = (e) => {
+    setSearchParams(
+      createSearchParams({ category: e.target.value.toLowerCase() })
+    );
+
     handleFilters((prevOptions) => ({
       ...prevOptions,
       categories: e.target.value,
@@ -62,6 +71,7 @@ export default function Filter({ handleFilters }) {
                 type='radio'
                 id={option}
                 value={option}
+                checked={category === option.toLowerCase()}
                 onChange={handleCategories}
               />
               <label htmlFor={option}> {option}</label>
