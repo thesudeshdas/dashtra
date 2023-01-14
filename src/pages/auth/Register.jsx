@@ -4,18 +4,20 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth.context';
 import './Auth.css';
 
-export default function Login() {
+export default function PageRegister() {
   const navigate = useNavigate();
 
   const {
     state: { signInStatus },
     dispatch: authDispatch,
-    signInWithEmailAndPassword,
+    registerNewUser,
   } = useAuth();
 
   const [inputs, setInputs] = useState({
+    name: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const handleInputChange = (e) =>
@@ -24,28 +26,12 @@ export default function Login() {
       [e.target.name]: e.target.value,
     }));
 
-  const handleLogin = async () => {
-    // try {
-    //   const response = await axios.post('http://localhost:3000/users/sign-in', {
-    //     email: inputs.email,
-    //     password: inputs.password,
-    //   });
-    //   if (response.status === 200) {
-    //     authDispatch({
-    //       type: 'SIGN_IN_SUCCESS',
-    //       payload: {
-    //         user: response.data.signedUser,
-    //         authToken: response.data.accessToken,
-    //       },
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.log({ error });
-    // }
-
-    signInWithEmailAndPassword({
+  const handleRegister = async () => {
+    registerNewUser({
+      name: inputs.name,
       email: inputs.email,
       password: inputs.password,
+      confirmPassword: inputs.confirmPassword,
     });
   };
 
@@ -58,9 +44,19 @@ export default function Login() {
   return (
     <main className='page-login flex-justify-center'>
       <form className='form-auth flex-column flex-align-center padding-ml padding-bottom-xl'>
-        <h2 className='font-size-lg margin-bottom-ml'>Login</h2>
+        <h2 className='font-size-lg margin-bottom-ml'>Register</h2>
 
-        <label htmlFor='email' className='margin-vertical-md'>
+        <label htmlFor='name' className='margin-bottom-md'>
+          <input
+            name='name'
+            type='text'
+            placeholder='Name'
+            onChange={handleInputChange}
+            className='padding-sm'
+          />
+        </label>
+
+        <label htmlFor='email' className='margin-bottom-md'>
           <input
             name='email'
             type='text'
@@ -71,7 +67,7 @@ export default function Login() {
         </label>
 
         {/* // TODO - Change to type password after development */}
-        <label htmlFor='password'>
+        <label htmlFor='password' className='margin-bottom-md'>
           <input
             name='password'
             type='text'
@@ -81,18 +77,28 @@ export default function Login() {
           />
         </label>
 
+        <label htmlFor='confirmPassword' className='margin-bottom-md'>
+          <input
+            name='confirmPassword'
+            type='text'
+            placeholder='Confirm Password'
+            onChange={handleInputChange}
+            className='padding-sm'
+          />
+        </label>
+
         <button
           type='button'
           className='button button-primary margin-bottom-md'
-          onClick={handleLogin}
+          onClick={handleRegister}
         >
-          Login
+          Register
         </button>
 
         <p>
-          Not a Member yet?{' '}
-          <Link to='/register'>
-            <span className='text-underline'>Register</span>
+          Already a Member?{' '}
+          <Link to='/signup'>
+            <span className='text-underline'>Login</span>
           </Link>
         </p>
       </form>

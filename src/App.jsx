@@ -5,6 +5,7 @@ import {
   Homepage,
   Login,
   NavFooterPages,
+  PageRegister,
   ProductDetails,
   ProductsListing,
   Wishlist,
@@ -42,6 +43,7 @@ function App() {
         </Route>
 
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<PageRegister />} />
       </Routes>
     </div>
   );

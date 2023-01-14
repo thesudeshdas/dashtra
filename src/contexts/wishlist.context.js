@@ -48,6 +48,27 @@ export default function WishlistProvider({ children }) {
   };
 
   const [state, dispatch] = useReducer(wishlistReducer, initialState);
+  
+  
+  const createWishlistInServer = async (owner) => {
+    try {
+      console.log("creating a cart now");
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}wishlist`,
+        {
+          owner,
+        },
+        // {
+        //   headers: { authorization: authToken },
+        // }
+      );
+
+      console.log({ response });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
 
   const addProductInServer = async (product) => {
     try {
@@ -102,6 +123,10 @@ export default function WishlistProvider({ children }) {
         }
       } catch (error) {
         console.log({ error });
+        if (error.response.status === 404) {
+          console.log("lets create a wishlist now");
+          createWishlistInServer(userId);
+        }
       }
     })();
   }, [signInStatus, userId]);

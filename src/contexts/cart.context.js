@@ -6,7 +6,7 @@ const CartContext = createContext();
 
 export default function CartProvider({ children }) {
   const {
-    state: { signInStatus, userId },
+    state: { authToken, signInStatus, userId },
   } = useAuth();
 
   const initialState = {
@@ -73,6 +73,25 @@ export default function CartProvider({ children }) {
   };
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  
+  const createCartInServer = async (owner) => {
+    try {
+      console.log("were creating a cart now", owner);
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}cart`,
+        {
+          owner,
+        },
+        // {
+        //   headers: { authorization: authToken },
+        // }
+      );
+
+      console.log({ response });
+    } catch (err) {
+      console.log({ err });
+    }
+  };
 
   const addProductInServer = async (product) => {
     try {
@@ -166,6 +185,11 @@ export default function CartProvider({ children }) {
         }
       } catch (error) {
         console.log({ error });
+        if (error.response.status === 404) {
+          console.log("lets try to createa cartnow");
+          createCartInServer(userId);
+        }
+        
       }
     })();
   }, [signInStatus, userId]);

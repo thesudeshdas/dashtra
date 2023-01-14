@@ -210,6 +210,10 @@
   text-decoration: line-through;
 }
 
+.text-underline {
+  text-decoration: underline;
+}
+
 /* ---TABLET VIEW--- */
 @media (max-width: 768px) {
   .margin-vertical-lg {

@@ -73,13 +73,9 @@ export default function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   const signInWithEmailAndPassword = async (user) => {
-    
-    
-    
     try {
-      
       console.log(process.env.REACT_APP_SERVER_URL);
-      
+
       const response = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}users/sign-in`,
         user
@@ -130,10 +126,40 @@ export default function AuthProvider({ children }) {
       console.error({ err });
     }
   };
+  
+  const registerNewUser = async (user) => {
+    console.log({ userToBeRegistered: user });
 
+    try {
+      if (user.password === user.confirmPassword) {
+        const response = await axios.post(
+          `${process.env.REACT_APP_SERVER_URL}users`,
+          {
+            name: user.name,
+            email: user.email,
+            password: user.password,
+          }
+        );
+        
+        console.log({response});
+
+        if (response.status === 200) {
+          signInWithEmailAndPassword(user);
+        }
+      }
+    } catch (err) {
+      console.log({ err });
+      // if (err.response.status === 409) {
+      //   dispatch({
+      //     type: "ERROR_EXISTING_USER",
+      //     payload: { message: "User already exists with this email." },
+      //   });
+      // }
+    }
+  };
   return (
     <AuthContext.Provider
-      value={{ state, dispatch, signInWithEmailAndPassword }}
+      value={{ state, dispatch, signInWithEmailAndPassword, registerNewUser }}
     >
       {children}
     </AuthContext.Provider>
