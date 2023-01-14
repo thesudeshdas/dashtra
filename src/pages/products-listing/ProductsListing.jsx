@@ -25,6 +25,8 @@ export default function ProductsListing() {
           `${process.env.REACT_APP_SERVER_URL}products`
         );
 
+        console.log({ response });
+
         response.status === 200 &&
           productsDispatch({
             type: 'INITIAL_FETCH_FROM_SERVER',
@@ -39,7 +41,7 @@ export default function ProductsListing() {
   const [selectedOptions, setSelectedOptions] = useState({
     rating: 0,
     brands: [],
-    price: 10000,
+    price: 15999,
     categories: '',
     availability: {
       includeOutOfStock: false,
@@ -63,6 +65,8 @@ export default function ProductsListing() {
       : searchedProducts;
 
   const sortedProducts = sortProducts(filteredArray, selectedOptions.sortBy);
+
+  console.log({ sortedProducts });
 
   return (
     <main className='page-products-listing flex-row'>

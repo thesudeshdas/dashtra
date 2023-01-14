@@ -13,7 +13,7 @@ export const optionsFilterData = {
     },
     {
       category: 'Brands',
-      options: ['Nike', 'Nivia', 'Puma', 'Adidas'],
+      options: ['nike', 'nivia', 'puma', 'adidas'],
     },
     {
       category: 'Price',
