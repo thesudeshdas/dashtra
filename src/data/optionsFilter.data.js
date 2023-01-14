@@ -9,7 +9,7 @@ export const optionsFilterData = {
     },
     {
       category: 'Categories',
-      options: ['Football', 'Accessories', 'Fitness', 'Clothing'],
+      options: ['Football', 'Accessories', 'Clothing', 'Fitness'],
     },
     {
       category: 'Brands',
