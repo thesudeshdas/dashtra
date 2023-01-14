@@ -181,7 +181,7 @@ export default function ProductDetails() {
           </span>
         </div>
 
-        <h2 className='font-size-xl font-weight-400'>4.4</h2>
+        <h2 className='font-size-xl font-weight-400'>{product.rating.stars}</h2>
 
         <hr className='margin-bottom-lg' />
       </section>

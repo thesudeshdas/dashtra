@@ -8,7 +8,7 @@ import { useWishlist } from '../../contexts/wishlist.context';
 import './CardProduct.css';
 
 export default function CardProduct({ details }) {
-  const { _id, brand, images, name, price } = details;
+  const { _id, brand, images, name, price, rating } = details;
 
   const product = details;
 
@@ -23,7 +23,7 @@ export default function CardProduct({ details }) {
       <Link to={`/product/${_id}`}>
         <img src={images[0].src} alt='Nike Strike' className='image' />
         <div className='card-product-rating flex-align-center font-weight-600 font-size-sm'>
-          4.3 <MajesticonsStar />
+          {rating.stars} <MajesticonsStar />
         </div>
         <h4 className='font-weight-600'>{brand}</h4>
         <h3 className='font-size-ms font-weight-400'>{name}</h3>
