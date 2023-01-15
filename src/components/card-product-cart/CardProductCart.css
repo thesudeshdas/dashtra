@@ -1,0 +1,22 @@
+.card-product-cart {
+  border: 1px solid var(--COLOR_TEXT_ONE);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  height: 9rem;
+}
+
+.card-product-cart img {
+  min-width: 20%;
+  max-width: 8rem;
+}
+
+.card-product-cart .cart-delete-item {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+.card-product-cart button {
+  padding: 0.25rem 0.75rem;
+}

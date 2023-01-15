@@ -1,0 +1,21 @@
+/* ---DESKTOP VIEW--- */
+.page-nav-footer-page {
+  display: grid;
+  grid-template-areas:
+    'nav'
+    'main';
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ---TABLET VIEW--- */
+@media (max-width: 992px) {
+  .page-nav-footer-page {
+    display: grid;
+    grid-template-areas:
+      'nav'
+      'main';
+    min-height: 100vh;
+    overflow: hidden;
+  }
+}

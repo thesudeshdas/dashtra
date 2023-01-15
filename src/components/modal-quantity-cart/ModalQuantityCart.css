@@ -1,0 +1,31 @@
+.modal-quantity-cart {
+  width: 20rem;
+  height: 10rem;
+  background-color: var(--COLOR_BACKGROUND_ALPHA);
+  border-radius: 0.25rem;
+}
+
+.modal-quantity-cart h3 {
+  margin-right: auto;
+}
+
+.modal-quantity-cart ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  gap: 1rem;
+}
+
+.modal-quantity-cart ul li button {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--COLOR_TEXT_ONE);
+  border-radius: 50%;
+}
+
+.modal-quantity-cart .modal-active-quantity {
+  color: var(--COLOR_BRAND_ALPHA);
+  border: 2px solid var(--COLOR_BRAND_ALPHA);
+  font-weight: 600;
+  background-color: var(--COLOR_NEUTRAL_BETA);
+}

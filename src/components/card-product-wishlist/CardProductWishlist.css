@@ -1,0 +1,33 @@
+.card-product--wishlist {
+  width: 15rem;
+  border: 1px solid var(--COLOR_TEXT_ONE);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 0;
+}
+
+.card-product--wishlist > button {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+.card-product--wishlist img {
+  width: calc(100% + 2rem);
+  margin-top: -1rem;
+  margin-left: -1rem;
+  aspect-ratio: 1/1;
+}
+
+.card-product__container--wishlist {
+  background-color: var(--COLOR_BACKGROUND_ALPHA);
+  width: 100%;
+  height: 4rem;
+}
+
+.card-product__container--wishlist > button {
+  padding: 0.5rem;
+  width: 100%;
+}
