@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { CardProduct, Filter, Sort } from '../../components';
 import { useProducts } from '../../contexts/products.context';
 import { useSearch } from '../../contexts/search.context';
@@ -10,6 +11,10 @@ import './ProductsListing.css';
 
 export default function ProductsListing() {
   const { searchProducts } = useSearch();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const category = searchParams.get('category');
 
   useDocumentTitle('Dashtra | Products');
 
@@ -40,7 +45,7 @@ export default function ProductsListing() {
     rating: 0,
     brands: [],
     price: 15999,
-    categories: '',
+    categories: category,
     availability: {
       includeOutOfStock: false,
       fastDeliveryOnly: false,

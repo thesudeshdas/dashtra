@@ -47,6 +47,8 @@ export default function ProductDetails() {
     (item) => item.product._id == productId
   );
 
+  console.log({ product });
+
   return (
     <main className='page-product-details flex-row'>
       {/* // TODO - Add history here */}
@@ -181,7 +183,9 @@ export default function ProductDetails() {
           </span>
         </div>
 
-        <h2 className='font-size-xl font-weight-400'>{product.rating.stars}</h2>
+        <h2 className='font-size-xl font-weight-400'>
+          {product.rating?.stars}
+        </h2>
 
         <hr className='margin-bottom-lg' />
       </section>
